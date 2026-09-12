@@ -31,52 +31,59 @@ export default function Hero({ onOpenQuote, onSelectService }) {
           Commercial <span className="text-slate-950 font-bold">Heidelberg Offset</span>, high-speed <span className="text-slate-950 font-bold">Digital Color</span>, weatherproof <span className="text-slate-950 font-bold">Flex Banners</span>, and precision <span className="text-slate-950 font-bold">Product Packaging</span> at unbeatable direct factory rates in Patna.
         </p>
 
-        {/* Trust Highlights Checklist */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-6 text-sm text-slate-800 font-semibold max-w-3xl mx-auto">
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-            <span>24-Hour Express Delivery</span>
+        {/* Trust Highlights Checklist: Balanced 4-column grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3.5 pt-6 max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs text-xs sm:text-sm font-semibold text-slate-800">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span className="whitespace-nowrap">24h Express Delivery</span>
           </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-            <span>300+ DPI Precision CMYK</span>
+          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs text-xs sm:text-sm font-semibold text-slate-800">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span className="whitespace-nowrap">300+ DPI Precision</span>
           </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-            <span>Direct Factory Pricing</span>
+          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs text-xs sm:text-sm font-semibold text-slate-800">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span className="whitespace-nowrap">Factory Direct Rates</span>
           </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-            <span>Free Pre-Press Art Check</span>
+          <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs text-xs sm:text-sm font-semibold text-slate-800">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span className="whitespace-nowrap">Free Pre-Press Check</span>
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 max-w-md mx-auto">
+        {/* Action CTA Buttons: Balanced, Sleek & Non-wrapping */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 max-w-xl mx-auto">
           <Link
             to="/calculator"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-extrabold text-base text-slate-950 bg-gradient-to-r from-amber-400 via-mg-gold to-amber-500 hover:from-amber-300 hover:to-amber-500 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105 group"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-extrabold text-sm sm:text-base text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md hover:shadow-lg shadow-amber-500/20 transition-all duration-200 hover:-translate-y-0.5 group whitespace-nowrap"
           >
-            <Sparkles className="w-5 h-5 text-slate-950" />
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-slate-950" />
             <span>Calculate Instant Price</span>
-            <ArrowRight className="w-5 h-5 text-slate-950 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <Link
             to="/services"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl font-bold text-base text-slate-800 bg-white hover:bg-slate-100 border border-slate-300 shadow-sm transition-all duration-200 hover:scale-105"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base text-slate-900 bg-white hover:bg-slate-100 border-2 border-slate-200 hover:border-slate-300 shadow-xs transition-all duration-200 hover:-translate-y-0.5 group whitespace-nowrap"
           >
-            <Layers className="w-5 h-5 text-slate-600" />
+            <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" />
             <span>Explore All Services</span>
+            <ArrowRight className="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        {/* Local Phone Direct Line */}
-        <div className="pt-6 text-xs text-slate-600 flex items-center justify-center gap-2">
-          <Clock className="w-4 h-4 text-amber-600" />
-          <span>Need urgent prints in Patna today? Call workshop direct:</span>
-          <a href={`tel:${COMPANY_INFO.phone}`} className="text-mg-cyan-700 font-extrabold hover:underline">
-            {COMPANY_INFO.formattedPhone}
+        {/* Local Workshop Direct Helpline Pill */}
+        <div className="pt-6 flex items-center justify-center">
+          <a
+            href={`tel:${COMPANY_INFO.phone}`}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-slate-200 hover:border-amber-400 text-xs text-slate-700 shadow-xs hover:shadow-sm transition-all group"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <Clock className="w-3.5 h-3.5 text-amber-600" />
+            <span>Need urgent prints in Patna today? Call workshop direct:</span>
+            <span className="text-mg-cyan-700 font-extrabold group-hover:underline">
+              {COMPANY_INFO.formattedPhone}
+            </span>
           </a>
         </div>
 
