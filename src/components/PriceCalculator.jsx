@@ -53,7 +53,6 @@ export default function PriceCalculator({ preselectedService, preloadedFile }) {
 
     // Add finish cost (either per unit or fixed for banners)
     if (selectedProduct.isAreaBased) {
-      // For banners: finish is often fixed per banner piece
       subtotal += (selectedFinish?.cost || 0) * quantity;
     } else {
       subtotal += (selectedFinish?.cost || 0) * quantity;
@@ -94,12 +93,10 @@ export default function PriceCalculator({ preselectedService, preloadedFile }) {
     if (!file) return;
 
     setFileUploading(true);
-    // Simulate / execute server upload
     try {
       const formData = new FormData();
       formData.append('artwork', file);
 
-      // Attempt to hit backend, fallback gracefully
       const res = await fetch('/api/upload', {
         method: 'POST',
         body: formData
@@ -194,41 +191,41 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
   };
 
   return (
-    <section id="calculator" className="py-20 md:py-28 bg-slate-900 text-white relative overflow-hidden">
-      {/* Subtle Background CMYK Gradients */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-mg-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-mg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="calculator" className="py-20 md:py-28 bg-slate-100/70 text-slate-900 relative overflow-hidden border-b border-slate-200">
+      {/* Subtle Background Glows */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-100/60 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-100/60 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-mg-gold/10 text-mg-gold border border-mg-gold/20 text-xs font-bold uppercase tracking-wider">
-            <Calculator className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold uppercase tracking-wider">
+            <Calculator className="w-3.5 h-3.5 text-amber-600" />
             Transparent Pricing Engine
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950">
             Instant <span className="text-gradient-cmyk">Price Calculator</span> & Online Order
           </h2>
-          <p className="text-base sm:text-lg text-slate-300">
+          <p className="text-base sm:text-lg text-slate-600 font-medium">
             Configure paper stock, dimensions, premium coatings, and quantities. Get real-time factory rates with bulk discounts for Patna & Bihar delivery.
           </p>
         </div>
 
         {/* Success Banner if Quote Submitted */}
         {submittedQuote && (
-          <div className="mt-8 max-w-2xl mx-auto p-6 rounded-3xl bg-emerald-950/90 border border-emerald-500/50 shadow-2xl text-center space-y-4 animate-in fade-in zoom-in duration-300">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center border border-emerald-500/40">
+          <div className="mt-8 max-w-2xl mx-auto p-6 rounded-3xl bg-white border-2 border-emerald-500 shadow-2xl text-center space-y-4 animate-in fade-in zoom-in duration-300">
+            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center border border-emerald-300">
               <CheckCircle2 className="w-9 h-9" />
             </div>
             <div>
-              <h3 className="text-2xl font-extrabold text-white">
+              <h3 className="text-2xl font-black text-slate-950">
                 Quote Request Registered! (ID: {submittedQuote.quoteId})
               </h3>
-              <p className="text-sm text-emerald-200 mt-1">
+              <p className="text-sm text-emerald-800 font-bold mt-1">
                 Estimated Total: ₹{submittedQuote.total.toLocaleString('en-IN')} • {submittedQuote.turnaround}
               </p>
-              <p className="text-xs text-slate-300 mt-2">
+              <p className="text-xs text-slate-600 mt-2">
                 Our prepress engineer at Free Press Ln, Pirmuhani, Patna will review your specs and call you at {clientPhone} to confirm proofs.
               </p>
             </div>
@@ -244,7 +241,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
               </a>
               <button
                 onClick={() => setSubmittedQuote(null)}
-                className="w-full sm:w-auto px-5 py-3 rounded-xl text-xs font-bold text-slate-300 bg-slate-800 hover:bg-slate-700"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300"
               >
                 Calculate Another Order
               </button>
@@ -256,12 +253,12 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left / Configurator Panel (7 cols) */}
-          <div className="lg:col-span-7 bg-slate-800/80 border border-slate-700/80 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-xl space-y-8">
+          <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-8 text-slate-900">
             
             {/* 1. Product Selector */}
             <div className="space-y-3">
-              <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-mg-cyan text-slate-950 flex items-center justify-center text-[10px] font-black">1</span>
+              <label className="text-xs font-black uppercase tracking-wider text-slate-600 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black">1</span>
                 Select Product Category
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -272,13 +269,13 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                     onClick={() => handleProductChange(prod.id)}
                     className={`p-3 rounded-2xl text-left border text-xs font-bold transition-all duration-200 flex flex-col justify-between min-h-[70px] ${
                       selectedProduct.id === prod.id
-                        ? 'bg-mg-cyan/20 border-mg-cyan text-white shadow-md'
-                        : 'bg-slate-900/60 border-slate-700 text-slate-300 hover:border-slate-500'
+                        ? 'bg-sky-50 border-2 border-mg-cyan-600 text-slate-950 shadow-xs'
+                        : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100'
                     }`}
                   >
                     <span>{prod.name}</span>
                     {selectedProduct.id === prod.id && (
-                      <Check className="w-3.5 h-3.5 text-mg-cyan self-end mt-1" />
+                      <Check className="w-3.5 h-3.5 text-mg-cyan-600 self-end mt-1" />
                     )}
                   </button>
                 ))}
@@ -287,8 +284,8 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
 
             {/* 2. Dimensions & Size */}
             <div className="space-y-3">
-              <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-mg-cyan text-slate-950 flex items-center justify-center text-[10px] font-black">2</span>
+              <label className="text-xs font-black uppercase tracking-wider text-slate-600 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black">2</span>
                 Choose Size / Dimensions
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
@@ -299,8 +296,8 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                     onClick={() => setSelectedSize(size)}
                     className={`p-3 rounded-xl text-left border text-xs font-semibold transition-all ${
                       selectedSize.id === size.id
-                        ? 'bg-mg-gold/20 border-mg-gold text-white'
-                        : 'bg-slate-900/60 border-slate-700 text-slate-300 hover:border-slate-500'
+                        ? 'bg-amber-50 border-2 border-amber-500 text-slate-950 font-bold shadow-xs'
+                        : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100'
                     }`}
                   >
                     <p className="font-bold">{size.name}</p>
@@ -311,8 +308,8 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
 
             {/* 3. Paper Stock / Material */}
             <div className="space-y-3">
-              <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-mg-cyan text-slate-950 flex items-center justify-center text-[10px] font-black">3</span>
+              <label className="text-xs font-black uppercase tracking-wider text-slate-600 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black">3</span>
                 Paper Stock / Material Spec
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -323,8 +320,8 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                     onClick={() => setSelectedMaterial(mat)}
                     className={`p-3 rounded-xl text-left border text-xs font-semibold transition-all ${
                       selectedMaterial.id === mat.id
-                        ? 'bg-emerald-500/20 border-emerald-400 text-white'
-                        : 'bg-slate-900/60 border-slate-700 text-slate-300 hover:border-slate-500'
+                        ? 'bg-emerald-50 border-2 border-emerald-600 text-slate-950 font-bold shadow-xs'
+                        : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100'
                     }`}
                   >
                     <p className="font-bold">{mat.name}</p>
@@ -335,8 +332,8 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
 
             {/* 4. Coating / Finishing Options */}
             <div className="space-y-3">
-              <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-mg-cyan text-slate-950 flex items-center justify-center text-[10px] font-black">4</span>
+              <label className="text-xs font-black uppercase tracking-wider text-slate-600 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black">4</span>
                 Finishing, Lamination & Effects
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -347,12 +344,12 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                     onClick={() => setSelectedFinish(finish)}
                     className={`p-3 rounded-xl text-left border text-xs font-semibold transition-all ${
                       selectedFinish.id === finish.id
-                        ? 'bg-mg-magenta/20 border-mg-magenta text-white'
-                        : 'bg-slate-900/60 border-slate-700 text-slate-300 hover:border-slate-500'
+                        ? 'bg-rose-50 border-2 border-rose-500 text-slate-950 font-bold shadow-xs'
+                        : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100'
                     }`}
                   >
                     <p className="font-bold">{finish.name}</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5">
+                    <p className="text-[11px] text-slate-500 font-semibold mt-0.5">
                       {finish.cost > 0 ? `+ ₹${finish.cost}/unit` : 'Included'}
                     </p>
                   </button>
@@ -362,13 +359,13 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
 
             {/* 5. Quantity & Tier Stepper */}
             <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-mg-cyan text-slate-950 flex items-center justify-center text-[10px] font-black">5</span>
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <label className="text-xs font-black uppercase tracking-wider text-slate-600 flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black">5</span>
                   Order Quantity
                 </label>
                 {pricing.discountPercent > 0 && (
-                  <span className="text-xs font-extrabold text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                  <span className="text-xs font-extrabold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
                     🎉 {pricing.discountPercent}% Bulk Volume Discount Applied
                   </span>
                 )}
@@ -382,7 +379,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                   step={selectedProduct.step}
                   value={quantity}
                   onChange={(e) => setQuantity(Number(e.target.value))}
-                  className="flex-1 accent-mg-gold h-2 bg-slate-700 rounded-lg cursor-pointer"
+                  className="flex-1 accent-amber-500 h-2 bg-slate-200 rounded-lg cursor-pointer"
                 />
 
                 <div className="flex items-center gap-2">
@@ -391,80 +388,80 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                     min={selectedProduct.minQty}
                     value={quantity}
                     onChange={(e) => setQuantity(Math.max(selectedProduct.minQty, Number(e.target.value)))}
-                    className="w-24 px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white font-bold text-center text-sm focus:outline-none focus:border-mg-gold"
+                    className="w-24 px-3 py-2 rounded-xl bg-white border-2 border-slate-300 text-slate-950 font-black text-center text-sm focus:outline-none focus:border-amber-500"
                   />
-                  <span className="text-xs text-slate-400 font-semibold">
+                  <span className="text-xs text-slate-600 font-bold">
                     {selectedProduct.isAreaBased ? 'pieces' : 'units'}
                   </span>
                 </div>
               </div>
 
               {/* Volume Discount Indicator chips */}
-              <div className="flex items-center gap-2 flex-wrap text-[11px] text-slate-400 pt-1">
-                <span>Bulk tiers:</span>
-                <span className={`px-2 py-0.5 rounded ${quantity >= 500 ? 'bg-emerald-900/60 text-emerald-300' : 'bg-slate-900 text-slate-500'}`}>500 (5% off)</span>
-                <span className={`px-2 py-0.5 rounded ${quantity >= 1000 ? 'bg-emerald-900/60 text-emerald-300' : 'bg-slate-900 text-slate-500'}`}>1,000 (12% off)</span>
-                <span className={`px-2 py-0.5 rounded ${quantity >= 2000 ? 'bg-emerald-900/60 text-emerald-300' : 'bg-slate-900 text-slate-500'}`}>2,000 (18% off)</span>
-                <span className={`px-2 py-0.5 rounded ${quantity >= 5000 ? 'bg-emerald-900/60 text-emerald-300' : 'bg-slate-900 text-slate-500'}`}>5,000+ (25% off)</span>
+              <div className="flex items-center gap-2 flex-wrap text-[11px] text-slate-600 pt-1">
+                <span className="font-semibold">Bulk tiers:</span>
+                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 500 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-500'}`}>500 (5% off)</span>
+                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 1000 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-500'}`}>1,000 (12% off)</span>
+                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 2000 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-500'}`}>2,000 (18% off)</span>
+                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 5000 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-500'}`}>5,000+ (25% off)</span>
               </div>
             </div>
 
             {/* 6. Turnaround Speed (Standard vs Rush in Patna) */}
             <div className="space-y-3">
-              <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-mg-cyan text-slate-950 flex items-center justify-center text-[10px] font-black">6</span>
+              <label className="text-xs font-black uppercase tracking-wider text-slate-600 flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black">6</span>
                 Turnaround Speed
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
                   type="button"
                   onClick={() => setIsRush(false)}
-                  className={`p-4 rounded-2xl text-left border text-xs transition-all ${
+                  className={`p-4 rounded-2xl text-left border-2 text-xs transition-all ${
                     !isRush
-                      ? 'bg-slate-900 border-mg-cyan text-white shadow-md'
-                      : 'bg-slate-900/40 border-slate-700 text-slate-400'
+                      ? 'bg-sky-50 border-mg-cyan-600 text-slate-950 shadow-xs'
+                      : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
                   }`}
                 >
-                  <div className="flex items-center justify-between font-bold text-sm text-white">
+                  <div className="flex items-center justify-between font-bold text-sm text-slate-900">
                     <span>Standard Production</span>
-                    <Clock className="w-4 h-4 text-slate-400" />
+                    <Clock className="w-4 h-4 text-slate-500" />
                   </div>
-                  <p className="text-slate-400 mt-1 text-[11px]">48 - 72 Hours standard queue</p>
-                  <p className="text-emerald-400 font-bold mt-1 text-[11px]">Included (No extra charge)</p>
+                  <p className="text-slate-600 mt-1 text-[11px]">48 - 72 Hours standard queue</p>
+                  <p className="text-emerald-700 font-bold mt-1 text-[11px]">Included (No extra charge)</p>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setIsRush(true)}
-                  className={`p-4 rounded-2xl text-left border text-xs transition-all ${
+                  className={`p-4 rounded-2xl text-left border-2 text-xs transition-all ${
                     isRush
-                      ? 'bg-mg-magenta/20 border-mg-magenta text-white shadow-md'
-                      : 'bg-slate-900/40 border-slate-700 text-slate-400'
+                      ? 'bg-rose-50 border-rose-500 text-slate-950 shadow-xs'
+                      : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
                   }`}
                 >
-                  <div className="flex items-center justify-between font-bold text-sm text-white">
-                    <span className="flex items-center gap-1.5 text-rose-300">
+                  <div className="flex items-center justify-between font-bold text-sm text-slate-900">
+                    <span className="flex items-center gap-1.5 text-rose-700">
                       ⚡ 24-Hour Express Rush
                     </span>
-                    <span className="text-[10px] bg-rose-500/30 text-rose-300 px-2 py-0.5 rounded-full font-extrabold">Patna</span>
+                    <span className="text-[10px] bg-rose-200 text-rose-800 px-2 py-0.5 rounded-full font-extrabold">Patna</span>
                   </div>
-                  <p className="text-slate-300 mt-1 text-[11px]">Priority queue slot at Golambar workshop</p>
-                  <p className="text-rose-400 font-bold mt-1 text-[11px]">+ ₹150 rush priority fee</p>
+                  <p className="text-slate-600 mt-1 text-[11px]">Priority queue slot at Golambar workshop</p>
+                  <p className="text-rose-700 font-bold mt-1 text-[11px]">+ ₹150 rush priority fee</p>
                 </button>
               </div>
             </div>
 
             {/* 7. File Upload Section */}
             <div className="space-y-3 pt-2">
-              <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center justify-between">
+              <label className="text-xs font-black uppercase tracking-wider text-slate-600 flex items-center justify-between">
                 <span className="flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-mg-cyan text-slate-950 flex items-center justify-center text-[10px] font-black">7</span>
+                  <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black">7</span>
                   Upload Artwork File (Optional)
                 </span>
-                <span className="text-[10px] text-slate-400">PDF, CDR, AI, PSD, TIFF, JPG (Max 50MB)</span>
+                <span className="text-[10px] text-slate-500 font-semibold">PDF, CDR, AI, PSD, TIFF, JPG (Max 50MB)</span>
               </label>
 
-              <div className="border-2 border-dashed border-slate-700 hover:border-mg-cyan rounded-2xl p-4 text-center bg-slate-900/60 relative">
+              <div className="border-2 border-dashed border-slate-300 hover:border-mg-cyan rounded-2xl p-4 text-center bg-slate-50 relative">
                 <input
                   type="file"
                   onChange={handleFileUpload}
@@ -473,14 +470,14 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                 />
 
                 {uploadedFile ? (
-                  <div className="flex items-center justify-between bg-slate-800/80 p-3 rounded-xl">
+                  <div className="flex items-center justify-between bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
                     <div className="flex items-center gap-2.5 text-left">
-                      <FileText className="w-6 h-6 text-mg-cyan" />
+                      <FileText className="w-6 h-6 text-mg-cyan-700" />
                       <div>
-                        <p className="text-xs font-bold text-white truncate max-w-[200px] sm:max-w-xs">
+                        <p className="text-xs font-bold text-slate-900 truncate max-w-[200px] sm:max-w-xs">
                           {uploadedFile.name}
                         </p>
-                        <p className="text-[10px] text-emerald-400">
+                        <p className="text-[10px] text-emerald-700 font-bold">
                           File ready for prepress verification
                         </p>
                       </div>
@@ -491,15 +488,15 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                         e.stopPropagation();
                         setUploadedFile(null);
                       }}
-                      className="text-xs text-rose-400 hover:underline px-2"
+                      className="text-xs text-rose-600 font-bold hover:underline px-2"
                     >
                       Remove
                     </button>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center justify-center py-2">
-                    <UploadCloud className="w-7 h-7 text-mg-cyan mb-1" />
-                    <p className="text-xs font-bold text-slate-300">
+                    <UploadCloud className="w-7 h-7 text-mg-cyan-700 mb-1" />
+                    <p className="text-xs font-bold text-slate-800">
                       {fileUploading ? 'Uploading artwork...' : 'Click to attach print artwork or drag here'}
                     </p>
                     <p className="text-[10px] text-slate-500 mt-0.5">
@@ -515,58 +512,58 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
           {/* Right / Live Quote Summary & Submission Form (5 cols) */}
           <div className="lg:col-span-5 sticky top-28 space-y-6">
             
-            {/* Price Summary Card */}
-            <div className="bg-gradient-to-b from-slate-800 via-slate-900 to-mg-navy border-2 border-mg-gold/40 rounded-3xl p-6 sm:p-7 shadow-2xl space-y-6">
+            {/* Price Summary Card (High Contrast Light Luxury Card) */}
+            <div className="bg-white border-2 border-amber-400/80 rounded-3xl p-6 sm:p-7 shadow-xl space-y-6 text-slate-900">
               
-              <div className="flex items-center justify-between border-b border-slate-700/80 pb-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-mg-gold">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-amber-700">
                     Estimated Factory Price
                   </span>
-                  <h3 className="text-lg font-black text-white">Order Summary</h3>
+                  <h3 className="text-xl font-black text-slate-950">Order Summary</h3>
                 </div>
-                <span className="px-2.5 py-1 rounded-full text-[10px] font-black bg-mg-cyan/20 text-mg-cyan border border-mg-cyan/30">
+                <span className="px-2.5 py-1 rounded-full text-[10px] font-black bg-sky-100 text-mg-cyan-800 border border-sky-300">
                   Patna Rates
                 </span>
               </div>
 
               {/* Itemized Breakdown */}
-              <div className="space-y-2.5 text-xs text-slate-300 border-b border-slate-700/80 pb-4">
+              <div className="space-y-2.5 text-xs text-slate-700 border-b border-slate-100 pb-4">
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Selected Item:</span>
-                  <span className="font-bold text-white text-right">{selectedProduct.name}</span>
+                  <span className="text-slate-500">Selected Item:</span>
+                  <span className="font-bold text-slate-950 text-right">{selectedProduct.name}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Dimensions:</span>
-                  <span className="font-semibold text-slate-200">{selectedSize.name}</span>
+                  <span className="text-slate-500">Dimensions:</span>
+                  <span className="font-semibold text-slate-900">{selectedSize.name}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Material Stock:</span>
-                  <span className="font-semibold text-slate-200">{selectedMaterial.name}</span>
+                  <span className="text-slate-500">Material Stock:</span>
+                  <span className="font-semibold text-slate-900">{selectedMaterial.name}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Finishing:</span>
-                  <span className="font-semibold text-slate-200">{selectedFinish.name}</span>
+                  <span className="text-slate-500">Finishing:</span>
+                  <span className="font-semibold text-slate-900">{selectedFinish.name}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Quantity:</span>
-                  <span className="font-bold text-white">{quantity} units</span>
+                  <span className="text-slate-500">Quantity:</span>
+                  <span className="font-black text-slate-950">{quantity} units</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Production Queue:</span>
-                  <span className={isRush ? 'text-rose-400 font-bold' : 'text-emerald-400 font-semibold'}>
+                  <span className="text-slate-500">Production Queue:</span>
+                  <span className={isRush ? 'text-rose-700 font-bold' : 'text-emerald-700 font-semibold'}>
                     {isRush ? '⚡ 24-Hour Express' : 'Standard 48-72h'}
                   </span>
                 </div>
 
                 {pricing.discountAmount > 0 && (
-                  <div className="flex justify-between text-emerald-400 font-bold pt-1">
+                  <div className="flex justify-between text-emerald-700 font-extrabold pt-1">
                     <span>Bulk Savings:</span>
                     <span>- ₹{pricing.discountAmount.toLocaleString('en-IN')} ({pricing.discountPercent}%)</span>
                   </div>
                 )}
                 {isRush && (
-                  <div className="flex justify-between text-rose-400 font-semibold">
+                  <div className="flex justify-between text-rose-700 font-semibold">
                     <span>Rush Priority Slot:</span>
                     <span>+ ₹{pricing.rushFee.toLocaleString('en-IN')}</span>
                   </div>
@@ -574,18 +571,18 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
               </div>
 
               {/* Big Price Display */}
-              <div className="bg-slate-950/60 p-4 rounded-2xl border border-slate-700 flex items-center justify-between">
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 p-4 rounded-2xl border border-amber-200 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Estimated Total</span>
-                  <p className="text-3xl sm:text-4xl font-black text-mg-gold">
+                  <span className="text-[10px] text-amber-900 uppercase font-bold tracking-wider">Estimated Total</span>
+                  <p className="text-3xl sm:text-4xl font-black text-amber-700">
                     ₹{pricing.estimatedTotal.toLocaleString('en-IN')}
                   </p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
-                    Approx. <span className="text-white font-bold">₹{pricing.estimatedUnitPrice}</span> per unit (incl. finish)
+                  <p className="text-[11px] text-slate-600 mt-0.5">
+                    Approx. <span className="text-slate-950 font-bold">₹{pricing.estimatedUnitPrice}</span> per unit (incl. finish)
                   </p>
                 </div>
                 <div className="text-right">
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-extrabold">
+                  <span className="text-[10px] px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 font-extrabold border border-emerald-300">
                     Best Value
                   </span>
                 </div>
@@ -594,8 +591,8 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
               {/* Quick Contact Form */}
               <form onSubmit={handleSubmitQuote} className="space-y-3 pt-1">
                 {formError && (
-                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-rose-950/80 border border-rose-500/40 text-xs text-rose-300">
-                    <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
+                  <div className="flex items-center gap-2 p-2.5 rounded-xl bg-rose-50 border border-rose-300 text-xs text-rose-800">
+                    <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
                     <span>{formError}</span>
                   </div>
                 )}
@@ -609,7 +606,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                       placeholder="Your Name"
                       value={clientName}
                       onChange={(e) => setClientName(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-mg-cyan"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-mg-cyan-600 focus:bg-white"
                     />
                   </div>
                   <div>
@@ -621,7 +618,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                       required
                       value={clientPhone}
                       onChange={(e) => setClientPhone(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-mg-cyan"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-mg-cyan-600 focus:bg-white"
                     />
                   </div>
                 </div>
@@ -634,7 +631,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                     placeholder="Specific instructions or delivery area in Patna"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-mg-cyan"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-mg-cyan-600 focus:bg-white"
                   />
                 </div>
 
@@ -643,7 +640,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                   href={generateWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold text-white bg-emerald-600 hover:bg-emerald-500 shadow-lg hover:shadow-emerald-600/30 transition-all duration-200 hover:scale-[1.02]"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition-all duration-200 hover:scale-[1.02]"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>Order via WhatsApp (+91 9386992015)</span>
@@ -653,15 +650,15 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-slate-300 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-extrabold text-white bg-slate-900 hover:bg-slate-800 transition-colors shadow-sm"
                 >
-                  <Sparkles className="w-4 h-4 text-mg-gold" />
+                  <Sparkles className="w-4 h-4 text-amber-400" />
                   <span>{isSubmitting ? 'Registering...' : 'Register Formal Quote Online'}</span>
                 </button>
               </form>
 
               {/* Patna Local Delivery Promise */}
-              <div className="pt-2 text-center text-[11px] text-slate-400">
+              <div className="pt-1 text-center text-[11px] text-slate-500 font-medium">
                 <p>📍 Direct pickup at Golambar, Pirmuhani or fast dispatch across Patna & Bihar.</p>
               </div>
 

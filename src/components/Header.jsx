@@ -20,37 +20,36 @@ export default function Header({ onOpenQuote }) {
     { name: 'Instant Calculator', href: '#calculator' },
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'About Us', href: '#about' },
-    { name: 'Packages', href: '#pricing' },
     { name: 'Pre-Press Help', href: '#resources' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Top Notification Announcement Bar */}
-      <div className="bg-mg-navy-dark text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+      {/* Top Notification Announcement Bar (Clean Light High-Contrast) */}
+      <div className="bg-slate-100 text-slate-800 text-xs py-2 px-4 border-b border-slate-200/90">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center space-x-4">
-            <span className="inline-flex items-center gap-1.5 text-mg-gold font-semibold">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="inline-flex items-center gap-1.5 text-amber-700 font-extrabold">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
               24-Hour Express Rush Printing Available in Patna
             </span>
-            <span className="hidden md:inline-flex items-center gap-1 text-slate-400">
-              <MapPin className="w-3.5 h-3.5 text-mg-cyan" />
+            <span className="hidden md:inline-flex items-center gap-1 text-slate-600 font-medium">
+              <MapPin className="w-3.5 h-3.5 text-mg-cyan-600" />
               Free Press Ln, Golambar, Pirmuhani, Patna
             </span>
           </div>
 
           <div className="flex items-center space-x-4 ml-auto">
-            <span className="hidden sm:inline-flex items-center gap-1 text-slate-400">
-              <Clock className="w-3.5 h-3.5 text-mg-cyan" />
+            <span className="hidden sm:inline-flex items-center gap-1 text-slate-600 font-medium">
+              <Clock className="w-3.5 h-3.5 text-mg-cyan-600" />
               Mon-Sat: 9:30 AM - 8:30 PM
             </span>
             <a
               href={`tel:${COMPANY_INFO.phone}`}
-              className="inline-flex items-center gap-1 text-white font-bold hover:text-mg-gold transition-colors"
+              className="inline-flex items-center gap-1.5 text-slate-900 font-black hover:text-mg-cyan-700 transition-colors bg-white px-2.5 py-0.5 rounded-md border border-slate-200 shadow-xs"
             >
-              <Phone className="w-3.5 h-3.5 text-mg-cyan" />
+              <Phone className="w-3.5 h-3.5 text-mg-cyan-600" />
               {COMPANY_INFO.formattedPhone}
             </a>
           </div>
@@ -61,26 +60,18 @@ export default function Header({ onOpenQuote }) {
       <div
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-mg-navy/95 backdrop-blur-md shadow-xl py-2.5 border-b border-slate-800/80'
-            : 'bg-white/95 backdrop-blur-md py-3.5 shadow-md border-b border-slate-100'
+            ? 'bg-white/98 backdrop-blur-md shadow-md py-2.5 border-b border-slate-200'
+            : 'bg-white/95 backdrop-blur-md py-3.5 shadow-xs border-b border-slate-200/80'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
+          <a href="#home" className="flex items-center group">
             <img
               src={COMPANY_INFO.logo}
               alt="Micro Graphics - Printing Solution Patna"
               className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
             />
-            <div className="hidden lg:block">
-              <span className={`block text-xs font-extrabold uppercase tracking-widest ${isScrolled ? 'text-mg-cyan' : 'text-mg-cyan-600'}`}>
-                Patna's Premier Press
-              </span>
-              <span className={`text-[10px] font-medium tracking-tight ${isScrolled ? 'text-slate-400' : 'text-slate-500'}`}>
-                Offset • Digital • Flex • Packaging
-              </span>
-            </div>
           </a>
 
           {/* Desktop Navigation Links */}
@@ -89,11 +80,7 @@ export default function Header({ onOpenQuote }) {
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                  isScrolled
-                    ? 'text-slate-200 hover:text-white hover:bg-slate-800/60'
-                    : 'text-slate-700 hover:text-mg-cyan-600 hover:bg-slate-100/80'
-                }`}
+                className="px-3 py-1.5 rounded-lg text-sm font-bold text-slate-700 hover:text-mg-cyan-700 hover:bg-slate-100 transition-all duration-200"
               >
                 {link.name}
               </a>
@@ -114,7 +101,7 @@ export default function Header({ onOpenQuote }) {
 
             <button
               onClick={onOpenQuote}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-mg-gold to-amber-400 hover:from-amber-400 hover:to-mg-gold shadow-md hover:shadow-glow-gold transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-extrabold text-slate-950 bg-gradient-to-r from-amber-400 to-mg-gold hover:from-amber-300 hover:to-amber-500 shadow-md transition-all duration-200 hover:scale-105"
             >
               <Sparkles className="w-4 h-4 text-slate-950" />
               <span>Get Instant Quote</span>
@@ -131,9 +118,7 @@ export default function Header({ onOpenQuote }) {
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 rounded-lg transition-colors ${
-                isScrolled ? 'text-white hover:bg-slate-800' : 'text-slate-800 hover:bg-slate-100'
-              }`}
+              className="p-2 rounded-lg text-slate-800 hover:bg-slate-100 transition-colors"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -144,17 +129,17 @@ export default function Header({ onOpenQuote }) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-mg-navy-dark/98 backdrop-blur-xl border-b border-slate-800 shadow-2xl px-6 py-6 animate-in slide-in-from-top duration-300">
+        <div className="xl:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 shadow-2xl px-6 py-6 animate-in slide-in-from-top duration-300 text-slate-900">
           <nav className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2 text-slate-200 font-semibold text-base border-b border-slate-800/60 hover:text-mg-gold transition-colors"
+                className="flex items-center justify-between py-2 text-slate-800 font-bold text-base border-b border-slate-100 hover:text-mg-cyan-700 transition-colors"
               >
                 <span>{link.name}</span>
-                <ChevronRight className="w-4 h-4 text-slate-500" />
+                <ChevronRight className="w-4 h-4 text-slate-400" />
               </a>
             ))}
           </nav>

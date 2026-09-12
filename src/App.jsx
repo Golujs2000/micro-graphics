@@ -5,7 +5,6 @@ import ServicesGrid from './components/ServicesGrid';
 import PriceCalculator from './components/PriceCalculator';
 import WhyChooseUs from './components/WhyChooseUs';
 import Portfolio from './components/Portfolio';
-import PricingPackages from './components/PricingPackages';
 import AboutUs from './components/AboutUs';
 import Resources from './components/Resources';
 import ContactSection from './components/ContactSection';
@@ -72,12 +71,7 @@ export default function App() {
         {/* 5. Featured Work, Portfolio & Testimonials */}
         <Portfolio />
 
-        {/* 6. Pricing Packages & Volume Discounts */}
-        <PricingPackages
-          onOpenQuote={() => handleOpenQuote()}
-        />
-
-        {/* 7. About Us & Machinery Tour */}
+        {/* 6. About Us & Machinery Tour */}
         <AboutUs />
 
         {/* 8. Print Preparation Guidelines & FAQs */}

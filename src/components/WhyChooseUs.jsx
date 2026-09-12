@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
             Why Micro Graphics is <span className="text-gradient-cmyk">Patna's #1 Choice</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-600">
-            For over 15 years, Patna's top hospitals, retail brands, educational institutes, and startups have trusted our presses for uncompromising precision.
+            For over 20 years (Established 2005), Patna's top hospitals, retail brands, educational institutes, and startups have trusted our presses for uncompromising precision.
           </p>
         </div>
 
@@ -79,33 +79,33 @@ export default function WhyChooseUs() {
           })}
         </div>
 
-        {/* Comparison Table */}
-        <div className="mt-16 rounded-3xl bg-slate-900 text-white p-6 sm:p-10 shadow-2xl border border-slate-800">
+        {/* Comparison Table (Light Theme) */}
+        <div className="mt-16 rounded-3xl bg-white text-slate-900 p-6 sm:p-10 shadow-lg border border-slate-200">
           <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-            <span className="text-xs font-black uppercase tracking-widest text-mg-gold">Standard of Excellence</span>
-            <h3 className="text-2xl sm:text-3xl font-black">Micro Graphics vs Ordinary Printers</h3>
+            <span className="text-xs font-black uppercase tracking-widest text-amber-700">Standard of Excellence</span>
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-950">Micro Graphics vs Ordinary Printers</h3>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-800 text-xs font-black uppercase tracking-wider text-slate-400">
-                  <th className="py-3 px-4">Feature</th>
-                  <th className="py-3 px-4 text-mg-gold font-extrabold">Micro Graphics Patna</th>
-                  <th className="py-3 px-4 text-slate-500">Ordinary Print Shops</th>
+                <tr className="border-b border-slate-200 text-xs font-black uppercase tracking-wider text-slate-600 bg-slate-50">
+                  <th className="py-3.5 px-4 rounded-l-xl">Feature</th>
+                  <th className="py-3.5 px-4 text-amber-800 font-extrabold bg-amber-50/60">Micro Graphics Patna</th>
+                  <th className="py-3.5 px-4 text-slate-500 rounded-r-xl">Ordinary Print Shops</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800 text-xs sm:text-sm">
+              <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
                 {comparisonRows.map((row, i) => (
-                  <tr key={i} className="hover:bg-slate-800/40 transition-colors">
-                    <td className="py-3.5 px-4 font-bold text-slate-200">{row.feature}</td>
-                    <td className="py-3.5 px-4 font-semibold text-emerald-300 flex items-center gap-2">
-                      <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <tr key={i} className="hover:bg-slate-50/70 transition-colors">
+                    <td className="py-3.5 px-4 font-bold text-slate-900">{row.feature}</td>
+                    <td className="py-3.5 px-4 font-bold text-emerald-800 bg-amber-50/30 flex items-center gap-2">
+                      <Check className="w-4 h-4 text-emerald-600 shrink-0" />
                       <span>{row.mg}</span>
                     </td>
-                    <td className="py-3.5 px-4 text-slate-400">
+                    <td className="py-3.5 px-4 text-slate-500">
                       <div className="flex items-center gap-2">
-                        <X className="w-4 h-4 text-rose-400 shrink-0" />
+                        <X className="w-4 h-4 text-rose-500 shrink-0" />
                         <span>{row.other}</span>
                       </div>
                     </td>

@@ -37,32 +37,32 @@ export default function Resources() {
         {/* Visual Pre-Press Diagram & Rules Grid */}
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left: Interactive Bleed & Margin Visualizer */}
-          <div className="lg:col-span-6 bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-6">
+          {/* Left: Interactive Bleed & Margin Visualizer (Clean Light Design) */}
+          <div className="lg:col-span-6 bg-slate-50 text-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
             <div className="space-y-1">
-              <span className="text-xs font-bold text-mg-gold uppercase tracking-wider">Visual Guide</span>
-              <h3 className="text-xl font-black">Understanding Bleed, Trim & Safe Zones</h3>
+              <span className="text-xs font-black text-amber-700 uppercase tracking-wider">Visual Technical Guide</span>
+              <h3 className="text-xl font-black text-slate-950">Understanding Bleed, Trim & Safe Zones</h3>
             </div>
 
             {/* Visual Box Simulator */}
-            <div className="relative p-6 rounded-2xl bg-slate-950 border-2 border-dashed border-rose-500/80 flex flex-col items-center justify-center min-h-[220px]">
-              <span className="absolute top-2 left-3 text-[10px] font-black text-rose-400">
-                🔴 Bleed Area (Add +3mm on all 4 sides for trimming)
+            <div className="relative p-6 rounded-2xl bg-rose-50/60 border-2 border-dashed border-rose-400 flex flex-col items-center justify-center min-h-[220px]">
+              <span className="absolute top-2 left-3 text-[10px] font-black text-rose-700">
+                🔴 Bleed Area (Add +3mm on all 4 sides for clean cutting)
               </span>
 
               {/* Trim Line Box */}
-              <div className="w-full h-full p-6 rounded-xl border-2 border-mg-cyan/80 bg-slate-900/60 flex flex-col items-center justify-center relative">
-                <span className="absolute top-2 right-3 text-[10px] font-bold text-mg-cyan">
+              <div className="w-full h-full p-6 rounded-xl border-2 border-mg-cyan-600 bg-white shadow-xs flex flex-col items-center justify-center relative">
+                <span className="absolute top-2 right-3 text-[10px] font-black text-mg-cyan-800">
                   🔵 Trim Line (Finished Product Dimension)
                 </span>
 
                 {/* Safe Zone Box */}
-                <div className="w-full p-4 rounded-lg border-2 border-dashed border-emerald-400/80 bg-emerald-950/20 text-center space-y-1">
-                  <span className="text-xs font-black text-emerald-300">
+                <div className="w-full p-4 rounded-lg border-2 border-dashed border-emerald-500 bg-emerald-50/80 text-center space-y-1">
+                  <span className="text-xs font-black text-emerald-800">
                     🟢 Safe Zone (Keep All Essential Text & Logos Here)
                   </span>
-                  <p className="text-[10px] text-slate-300">
-                    Keep copy at least 3mm (0.125") inside the trim line to prevent edge cutoff.
+                  <p className="text-[11px] text-slate-700 font-medium">
+                    Keep copy at least 3mm (0.125") inside the trim line to prevent edge cutoff during guillotining.
                   </p>
                 </div>
               </div>
@@ -70,60 +70,60 @@ export default function Resources() {
 
             {/* Prepress Golden Rules */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
-                <p className="font-bold text-mg-cyan flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-mg-cyan" />
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
+                <p className="font-extrabold text-mg-cyan-800 flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-mg-cyan-600" />
                   CMYK Color Mode
                 </p>
-                <p className="text-slate-400 mt-1 text-[11px]">
-                  Never submit RGB files to avoid unexpected shade shifts during ink transfer.
+                <p className="text-slate-600 mt-1 text-[11px] font-medium">
+                  Never submit RGB files to avoid unexpected shade shifts during commercial ink transfer.
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
-                <p className="font-bold text-mg-gold flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-mg-gold" />
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
+                <p className="font-extrabold text-amber-800 flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-amber-600" />
                   300 DPI Resolution
                 </p>
-                <p className="text-slate-400 mt-1 text-[11px]">
-                  All embedded raster photos must be 300 DPI at 100% reproduction scale.
+                <p className="text-slate-600 mt-1 text-[11px] font-medium">
+                  All embedded raster photos must be 300 DPI at 100% reproduction scale to avoid pixelation.
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
-                <p className="font-bold text-emerald-400 flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
+                <p className="font-extrabold text-emerald-800 flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-emerald-600" />
                   Convert Fonts to Curves
                 </p>
-                <p className="text-slate-400 mt-1 text-[11px]">
-                  Convert all fonts to curves / outlines (Ctrl+Q in CorelDraw, Ctrl+Shift+O in AI).
+                <p className="text-slate-600 mt-1 text-[11px] font-medium">
+                  Convert all typography to curves / outlines (Ctrl+Q in CorelDraw, Ctrl+Shift+O in AI).
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700">
-                <p className="font-bold text-rose-400 flex items-center gap-1.5">
-                  <CheckCircle className="w-3.5 h-3.5 text-rose-400" />
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
+                <p className="font-extrabold text-slate-900 flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-slate-700" />
                   Rich Black Formula
                 </p>
-                <p className="text-slate-400 mt-1 text-[11px]">
-                  For dark backgrounds: C:40, M:30, Y:30, K:100 for a deep obsidian black.
+                <p className="text-slate-600 mt-1 text-[11px] font-medium">
+                  For dark backgrounds: C:40, M:30, Y:30, K:100 for a deep, saturated rich black.
                 </p>
               </div>
             </div>
 
             {/* Template Specs */}
             <div className="pt-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+              <h4 className="text-xs font-black uppercase tracking-wider text-slate-700 mb-2">
                 Standard Template Dimensions
               </h4>
               <div className="space-y-2 text-xs">
                 {templates.map((tpl, idx) => (
-                  <div key={idx} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                  <div key={idx} className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200 shadow-xs">
                     <div>
-                      <p className="font-bold text-white">{tpl.name}</p>
-                      <p className="text-[10px] text-slate-400">{tpl.size}</p>
+                      <p className="font-black text-slate-900">{tpl.name}</p>
+                      <p className="text-[10px] text-slate-500 font-semibold">{tpl.size}</p>
                     </div>
-                    <span className="text-[10px] text-mg-gold font-semibold bg-mg-gold/10 px-2 py-0.5 rounded border border-mg-gold/20">
+                    <span className="text-[10px] text-amber-900 font-bold bg-amber-100 px-2.5 py-0.5 rounded border border-amber-300">
                       {tpl.ext}
                     </span>
                   </div>

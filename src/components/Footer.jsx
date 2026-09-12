@@ -86,7 +86,6 @@ export default function Footer({ onOpenPolicy }) {
             <ul className="space-y-2 text-xs">
               <li><a href="#calculator" className="text-mg-cyan hover:underline font-bold">Instant Price Calculator</a></li>
               <li><a href="#portfolio" className="hover:text-white transition-colors">Past Projects & Reviews</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Package Bundles & Discounts</a></li>
               <li><a href="#resources" className="hover:text-white transition-colors">Print Bleed & Pre-Press Guide</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">Workshop Story & Machinery</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Patna Workshop Directions</a></li>

@@ -58,13 +58,13 @@ export default function AboutUs() {
             </div>
 
             {/* Badge floating */}
-            <div className="absolute -bottom-6 -right-6 hidden sm:flex items-center gap-3 bg-mg-navy text-white p-4 rounded-2xl shadow-xl border border-slate-800">
-              <div className="w-12 h-12 rounded-xl bg-mg-cyan/20 flex items-center justify-center text-mg-cyan">
+            <div className="absolute -bottom-6 -right-6 hidden sm:flex items-center gap-3 bg-white text-slate-900 p-4 rounded-2xl shadow-xl border border-slate-200">
+              <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 shadow-xs">
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xl font-black text-mg-gold">15+ Years</p>
-                <p className="text-xs text-slate-300 font-medium">Patna’s Trusted Print Partner</p>
+                <p className="text-xl font-black text-amber-700">20+ Years</p>
+                <p className="text-xs text-slate-600 font-bold">Established in 2005</p>
               </div>
             </div>
           </div>
