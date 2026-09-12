@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://micrographics-patna.web.app/sitemap.xml
