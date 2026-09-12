@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Phone, MessageCircle, Clock, MapPin, Menu, X, ChevronRight, Sparkles } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
 
 export default function Header({ onOpenQuote }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Instant Calculator', href: '#calculator' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Pre-Press Help', href: '#resources' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: 'Instant Calculator', href: '/calculator' },
+    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Pre-Press Help', href: '/resources' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -65,26 +67,39 @@ export default function Header({ onOpenQuote }) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Logo */}
-          <a href="#home" className="flex items-center group">
+          
+          {/* Brand Logo - Side-by-Side on the Exact Same Centerline */}
+          <Link to="/" className="flex items-center gap-3 group">
             <img
-              src={COMPANY_INFO.logo}
-              alt="Micro Graphics - Printing Solution Patna"
-              className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
+              src="/assets/micro graphics icon.png"
+              alt="Micro Graphics Icon"
+              className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105 shrink-0"
             />
-          </a>
+            <img
+              src="/assets/micro graphics text.png"
+              alt="Micro Graphics Printing Solution"
+              className="h-6 sm:h-7 w-auto object-contain shrink-0"
+            />
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden xl:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="px-3 py-1.5 rounded-lg text-sm font-bold text-slate-700 hover:text-mg-cyan-700 hover:bg-slate-100 transition-all duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
+                    isActive
+                      ? 'bg-slate-900 text-white shadow-xs'
+                      : 'text-slate-700 hover:text-mg-cyan-700 hover:bg-slate-100'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Header Action Buttons */}
@@ -99,23 +114,23 @@ export default function Header({ onOpenQuote }) {
               <span>WhatsApp</span>
             </a>
 
-            <button
-              onClick={onOpenQuote}
+            <Link
+              to="/calculator"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-extrabold text-slate-950 bg-gradient-to-r from-amber-400 to-mg-gold hover:from-amber-300 hover:to-amber-500 shadow-md transition-all duration-200 hover:scale-105"
             >
               <Sparkles className="w-4 h-4 text-slate-950" />
               <span>Get Instant Quote</span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="xl:hidden flex items-center space-x-2">
-            <button
-              onClick={onOpenQuote}
+            <Link
+              to="/calculator"
               className="sm:hidden px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-950 bg-mg-gold"
             >
               Quote
-            </button>
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-800 hover:bg-slate-100 transition-colors"
@@ -132,19 +147,19 @@ export default function Header({ onOpenQuote }) {
         <div className="xl:hidden bg-white/98 backdrop-blur-xl border-b border-slate-200 shadow-2xl px-6 py-6 animate-in slide-in-from-top duration-300 text-slate-900">
           <nav className="flex flex-col space-y-3">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-between py-2 text-slate-800 font-bold text-base border-b border-slate-100 hover:text-mg-cyan-700 transition-colors"
               >
                 <span>{link.name}</span>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
-              </a>
+              </Link>
             ))}
           </nav>
 
-          <div className="mt-6 pt-4 border-t border-slate-800 space-y-3">
+          <div className="mt-6 pt-4 border-t border-slate-100 space-y-3">
             <a
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Micro%20Graphics%2C%20I%20need%20a%20printing%20inquiry%20for%20Patna.`}
               target="_blank"
@@ -155,16 +170,14 @@ export default function Header({ onOpenQuote }) {
               <span>Chat on WhatsApp ({COMPANY_INFO.formattedPhone})</span>
             </a>
 
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenQuote();
-              }}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-mg-gold to-amber-400 shadow-lg"
+            <Link
+              to="/calculator"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-mg-gold shadow-md"
             >
               <Sparkles className="w-5 h-5 text-slate-950" />
               <span>Open Instant Price Calculator</span>
-            </button>
+            </Link>
           </div>
         </div>
       )}
