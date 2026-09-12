@@ -22,13 +22,12 @@ export default function Header({ onOpenQuote }) {
     { name: 'Instant Calculator', href: '/calculator' },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About Us', href: '/about' },
-    { name: 'Pre-Press Help', href: '/resources' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Top Notification Announcement Bar (Clean Light High-Contrast) */}
+      {/* Top Notification Announcement Bar */}
       <div className="bg-slate-100 text-slate-800 text-xs py-2 px-4 border-b border-slate-200/90">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center space-x-4">
@@ -68,17 +67,12 @@ export default function Header({ onOpenQuote }) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Brand Logo - Side-by-Side on the Exact Same Centerline */}
-          <Link to="/" className="flex items-center gap-3 group">
+          {/* Brand Logo - Official Horizontal Logo */}
+          <Link to="/" className="flex items-center group">
             <img
-              src="/assets/micro graphics icon.png"
-              alt="Micro Graphics Icon"
-              className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105 shrink-0"
-            />
-            <img
-              src="/assets/micro graphics text.png"
-              alt="Micro Graphics Printing Solution"
-              className="h-6 sm:h-7 w-auto object-contain shrink-0"
+              src="/assets/micro graphics horizontal logo.png"
+              alt="Micro Graphics - Printing Solution"
+              className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>
 
@@ -90,7 +84,7 @@ export default function Header({ onOpenQuote }) {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
                     isActive
                       ? 'bg-slate-900 text-white shadow-xs'
                       : 'text-slate-700 hover:text-mg-cyan-700 hover:bg-slate-100'

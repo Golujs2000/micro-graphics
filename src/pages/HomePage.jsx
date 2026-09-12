@@ -1,4 +1,5 @@
 import React from 'react';
+import BannerSlider from '../components/BannerSlider';
 import Hero from '../components/Hero';
 import ServicesGrid from '../components/ServicesGrid';
 import PriceCalculator from '../components/PriceCalculator';
@@ -22,7 +23,10 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* 1. Hero Section with Quick Dropzone */}
+      {/* 1. Top Banner Slider between Nav and Hero */}
+      <BannerSlider />
+
+      {/* 2. Hero Section */}
       <Hero
         onOpenQuote={handleOpenQuote}
         onSelectService={handleSelectService}
