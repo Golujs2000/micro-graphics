@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, MessageCircle, Clock, MapPin, Menu, X, ChevronRight, Sparkles } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
+import Logo from './Logo';
 
 export default function Header({ onOpenQuote }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,7 +33,7 @@ export default function Header({ onOpenQuote }) {
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center space-x-4">
             <span className="inline-flex items-center gap-1.5 text-amber-700 font-extrabold">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-mg-cyan animate-pulse"></span>
               24-Hour Express Rush Printing Available in Patna
             </span>
             <span className="hidden md:inline-flex items-center gap-1 text-slate-600 font-medium">
@@ -67,13 +68,9 @@ export default function Header({ onOpenQuote }) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Brand Logo - Official Horizontal Logo */}
+          {/* Brand Logo with Icon & Text */}
           <Link to="/" className="flex items-center group">
-            <img
-              src="/assets/micro graphics horizontal logo.png"
-              alt="Micro Graphics - Printing Solution"
-              className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
-            />
+            <Logo size="md" />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -102,7 +99,7 @@ export default function Header({ onOpenQuote }) {
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Micro%20Graphics%2C%20I%20need%20a%20printing%20inquiry%20for%20Patna.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-mg-cyan hover:bg-mg-cyan-600 shadow-sm transition-all hover:scale-105"
             >
               <MessageCircle className="w-4 h-4" />
               <span>WhatsApp</span>
@@ -158,7 +155,7 @@ export default function Header({ onOpenQuote }) {
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Micro%20Graphics%2C%20I%20need%20a%20printing%20inquiry%20for%20Patna.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-white bg-mg-cyan hover:bg-mg-cyan-600 shadow-md"
             >
               <MessageCircle className="w-5 h-5" />
               <span>Chat on WhatsApp ({COMPANY_INFO.formattedPhone})</span>

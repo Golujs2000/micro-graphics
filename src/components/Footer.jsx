@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MessageCircle, MapPin, Mail, Clock, ArrowUp } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
+import Logo from './Logo';
 
 export default function Footer({ onOpenPolicy }) {
   const scrollToTop = () => {
@@ -18,18 +19,9 @@ export default function Footer({ onOpenPolicy }) {
           {/* Col 1: Brand & Logo (2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
             
-            {/* Same-Line Horizontal Logo */}
-            <Link to="/" className="flex items-center gap-3 bg-white p-2.5 rounded-2xl w-fit shadow-xs">
-              <img
-                src="/assets/micro graphics icon.png"
-                alt="Micro Graphics Icon"
-                className="h-10 w-auto object-contain shrink-0"
-              />
-              <img
-                src="/assets/micro graphics text.png"
-                alt="Micro Graphics Printing Solution"
-                className="h-6 w-auto object-contain shrink-0"
-              />
+            {/* Brand Logo with Icon & Text */}
+            <Link to="/" className="inline-flex items-center bg-white px-3.5 py-2.5 rounded-2xl shadow-sm hover:opacity-95 transition-all duration-200 group">
+              <Logo size="sm" variant="light" />
             </Link>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
@@ -41,7 +33,7 @@ export default function Footer({ onOpenPolicy }) {
                 href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Micro%20Graphics`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center transition-transform hover:scale-110 shadow-md"
+                className="w-9 h-9 rounded-xl bg-mg-cyan hover:bg-mg-cyan-600 text-white flex items-center justify-center transition-transform hover:scale-110 shadow-md"
                 title="WhatsApp Us"
               >
                 <MessageCircle className="w-4 h-4" />

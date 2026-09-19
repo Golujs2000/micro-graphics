@@ -89,7 +89,7 @@ export default function ContactSection() {
               </div>
 
               <div className="p-5 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-2">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-mg-cyan/10 text-mg-cyan-600 flex items-center justify-center">
                   <Phone className="w-5 h-5" />
                 </div>
                 <h4 className="font-bold text-slate-900 text-sm">Direct Phone & WhatsApp</h4>
@@ -106,7 +106,7 @@ export default function ContactSection() {
                   href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Micro%20Graphics%2C%20I%20have%20an%20inquiry.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 hover:underline"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-mg-cyan-600 hover:underline"
                 >
                   <MessageCircle className="w-3.5 h-3.5" />
                   <span>Chat on WhatsApp</span>
@@ -121,7 +121,7 @@ export default function ContactSection() {
                 <p className="text-xs text-slate-600">
                   {COMPANY_INFO.hours}
                 </p>
-                <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded bg-sky-100 text-mg-cyan-800">
                   Open for Walk-In Inquiries
                 </span>
               </div>
@@ -171,8 +171,8 @@ export default function ContactSection() {
             </div>
 
             {submitted ? (
-              <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
-                <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
+              <div className="p-8 rounded-2xl bg-sky-50 border border-sky-200 text-center space-y-3">
+                <div className="w-14 h-14 rounded-full bg-sky-100 text-mg-cyan-600 mx-auto flex items-center justify-center">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h4 className="text-xl font-bold text-slate-900">Inquiry Sent Successfully!</h4>
@@ -281,7 +281,7 @@ export default function ContactSection() {
                     href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Micro%20Graphics%20Patna%2C%20I%20want%20to%20place%20an%20inquiry.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl font-bold text-xs sm:text-sm text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl font-bold text-xs sm:text-sm text-white bg-mg-cyan hover:bg-mg-cyan-600 shadow-md transition-all"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>Instant WhatsApp</span>

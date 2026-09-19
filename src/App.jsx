@@ -69,7 +69,7 @@ export default function App() {
             href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Micro%20Graphics%20Patna%2C%20I%20need%20a%20printing%20estimate.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="pointer-events-auto flex items-center gap-2 px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold shadow-2xl hover:scale-105 transition-all group"
+            className="pointer-events-auto flex items-center gap-2 px-4 py-3 rounded-full bg-mg-cyan hover:bg-mg-cyan-600 text-white font-extrabold shadow-2xl hover:scale-105 transition-all group"
             title="Chat with Micro Graphics on WhatsApp"
           >
             <MessageCircle className="w-6 h-6 text-white group-hover:animate-bounce" />

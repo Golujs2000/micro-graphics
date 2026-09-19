@@ -1,9 +1,9 @@
 import React, { useState, useId } from 'react';
-import { Sparkles, MessageCircle, UploadCloud, CheckCircle2, Clock, Calculator, HelpCircle, FileText, Check, AlertCircle } from 'lucide-react';
+import { Sparkles, MessageCircle, CheckCircle2, Clock, Calculator, HelpCircle, Check, AlertCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { CALCULATOR_DATA, COMPANY_INFO } from '../data/siteData';
 
-export default function PriceCalculator({ preselectedService, preloadedFile }) {
+export default function PriceCalculator({ preselectedService }) {
   const nameInputId = useId();
   const phoneInputId = useId();
   const notesInputId = useId();
@@ -17,8 +17,6 @@ export default function PriceCalculator({ preselectedService, preloadedFile }) {
   const [selectedFinish, setSelectedFinish] = useState(initialProduct.finishes[0]);
   const [quantity, setQuantity] = useState(initialProduct.defaultQty);
   const [isRush, setIsRush] = useState(false);
-  const [uploadedFile, setUploadedFile] = useState(preloadedFile || null);
-  const [fileUploading, setFileUploading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedQuote, setSubmittedQuote] = useState(null);
 
@@ -87,34 +85,6 @@ export default function PriceCalculator({ preselectedService, preloadedFile }) {
 
   const pricing = calculatePricing();
 
-  // File drop/upload handlers
-  const handleFileUpload = async (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    setFileUploading(true);
-    try {
-      const formData = new FormData();
-      formData.append('artwork', file);
-
-      const res = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData
-      }).catch(() => null);
-
-      if (res && res.ok) {
-        const data = await res.json();
-        setUploadedFile({ name: file.name, size: file.size, serverUrl: data.file?.url });
-      } else {
-        setUploadedFile({ name: file.name, size: file.size });
-      }
-    } catch (err) {
-      setUploadedFile({ name: file.name, size: file.size });
-    } finally {
-      setFileUploading(false);
-    }
-  };
-
   // WhatsApp Order Link Generator
   const generateWhatsAppUrl = () => {
     const message = `*MICRO GRAPHICS PATNA - PRINT ESTIMATE*
@@ -126,7 +96,6 @@ export default function PriceCalculator({ preselectedService, preloadedFile }) {
 *Quantity:* ${quantity} units
 *Turnaround:* ${isRush ? '⚡ 24-Hour Express Rush' : 'Standard (48-72h)'}
 *Estimated Price:* ₹${pricing.estimatedTotal.toLocaleString('en-IN')} (₹${pricing.estimatedUnitPrice}/unit)
-${uploadedFile ? `*Artwork:* File Attached (${uploadedFile.name})` : '*Artwork:* Will provide via chat'}
 ${clientName ? `*Client Name:* ${clientName}` : ''}
 ${notes ? `*Special Notes:* ${notes}` : ''}
 ---------------------------------------
@@ -155,8 +124,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
         isRush,
         clientName: clientName || 'Patna Client',
         clientPhone,
-        notes,
-        uploadedFile: uploadedFile?.name || null
+        notes
       };
 
       const res = await fetch('/api/quote', {
@@ -214,15 +182,15 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
 
         {/* Success Banner if Quote Submitted */}
         {submittedQuote && (
-          <div className="mt-8 max-w-2xl mx-auto p-6 rounded-3xl bg-white border-2 border-emerald-500 shadow-2xl text-center space-y-4 animate-in fade-in zoom-in duration-300">
-            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center border border-emerald-300">
+          <div className="mt-8 max-w-2xl mx-auto p-6 rounded-3xl bg-white border-2 border-mg-cyan shadow-2xl text-center space-y-4 animate-in fade-in zoom-in duration-300">
+            <div className="w-16 h-16 rounded-full bg-sky-100 text-mg-cyan-600 mx-auto flex items-center justify-center border border-sky-300">
               <CheckCircle2 className="w-9 h-9" />
             </div>
             <div>
               <h3 className="text-2xl font-black text-slate-950">
                 Quote Request Registered! (ID: {submittedQuote.quoteId})
               </h3>
-              <p className="text-sm text-emerald-800 font-bold mt-1">
+              <p className="text-sm text-mg-cyan-800 font-bold mt-1">
                 Estimated Total: ₹{submittedQuote.total.toLocaleString('en-IN')} • {submittedQuote.turnaround}
               </p>
               <p className="text-xs text-slate-600 mt-2">
@@ -234,7 +202,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                 href={generateWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs font-extrabold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs font-extrabold text-white bg-mg-cyan hover:bg-mg-cyan-600 shadow-md"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Confirm on WhatsApp ({COMPANY_INFO.formattedPhone})</span>
@@ -320,7 +288,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                     onClick={() => setSelectedMaterial(mat)}
                     className={`p-3 rounded-xl text-left border text-xs font-semibold transition-all ${
                       selectedMaterial.id === mat.id
-                        ? 'bg-emerald-50 border-2 border-emerald-600 text-slate-950 font-bold shadow-xs'
+                        ? 'bg-sky-50 border-2 border-mg-cyan text-slate-950 font-bold shadow-xs'
                         : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100'
                     }`}
                   >
@@ -365,7 +333,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                   Order Quantity
                 </label>
                 {pricing.discountPercent > 0 && (
-                  <span className="text-xs font-extrabold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
+                  <span className="text-xs font-extrabold text-mg-cyan-800 bg-sky-100 px-2.5 py-0.5 rounded-full border border-sky-300">
                     🎉 {pricing.discountPercent}% Bulk Volume Discount Applied
                   </span>
                 )}
@@ -399,10 +367,10 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
               {/* Volume Discount Indicator chips */}
               <div className="flex items-center gap-2 flex-wrap text-[11px] text-slate-600 pt-1">
                 <span className="font-semibold">Bulk tiers:</span>
-                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 500 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-500'}`}>500 (5% off)</span>
-                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 1000 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-500'}`}>1,000 (12% off)</span>
-                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 2000 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-500'}`}>2,000 (18% off)</span>
-                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 5000 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-100 text-slate-500'}`}>5,000+ (25% off)</span>
+                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 500 ? 'bg-sky-100 text-mg-cyan-800 border border-sky-300' : 'bg-slate-100 text-slate-500'}`}>500 (5% off)</span>
+                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 1000 ? 'bg-sky-100 text-mg-cyan-800 border border-sky-300' : 'bg-slate-100 text-slate-500'}`}>1,000 (12% off)</span>
+                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 2000 ? 'bg-sky-100 text-mg-cyan-800 border border-sky-300' : 'bg-slate-100 text-slate-500'}`}>2,000 (18% off)</span>
+                <span className={`px-2 py-0.5 rounded font-semibold ${quantity >= 5000 ? 'bg-sky-100 text-mg-cyan-800 border border-sky-300' : 'bg-slate-100 text-slate-500'}`}>5,000+ (25% off)</span>
               </div>
             </div>
 
@@ -427,7 +395,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                     <Clock className="w-4 h-4 text-slate-500" />
                   </div>
                   <p className="text-slate-600 mt-1 text-[11px]">48 - 72 Hours standard queue</p>
-                  <p className="text-emerald-700 font-bold mt-1 text-[11px]">Included (No extra charge)</p>
+                  <p className="text-mg-cyan-700 font-bold mt-1 text-[11px]">Included (No extra charge)</p>
                 </button>
 
                 <button
@@ -451,61 +419,6 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
               </div>
             </div>
 
-            {/* 7. File Upload Section */}
-            <div className="space-y-3 pt-2">
-              <label className="text-xs font-black uppercase tracking-wider text-slate-600 flex items-center justify-between">
-                <span className="flex items-center gap-2">
-                  <span className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black">7</span>
-                  Upload Artwork File (Optional)
-                </span>
-                <span className="text-[10px] text-slate-500 font-semibold">PDF, CDR, AI, PSD, TIFF, JPG (Max 50MB)</span>
-              </label>
-
-              <div className="border-2 border-dashed border-slate-300 hover:border-mg-cyan rounded-2xl p-4 text-center bg-slate-50 relative">
-                <input
-                  type="file"
-                  onChange={handleFileUpload}
-                  accept=".pdf,.cdr,.ai,.eps,.psd,.tiff,.jpg,.jpeg,.png,.zip"
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                />
-
-                {uploadedFile ? (
-                  <div className="flex items-center justify-between bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
-                    <div className="flex items-center gap-2.5 text-left">
-                      <FileText className="w-6 h-6 text-mg-cyan-700" />
-                      <div>
-                        <p className="text-xs font-bold text-slate-900 truncate max-w-[200px] sm:max-w-xs">
-                          {uploadedFile.name}
-                        </p>
-                        <p className="text-[10px] text-emerald-700 font-bold">
-                          File ready for prepress verification
-                        </p>
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setUploadedFile(null);
-                      }}
-                      className="text-xs text-rose-600 font-bold hover:underline px-2"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                ) : (
-                  <div className="flex flex-col items-center justify-center py-2">
-                    <UploadCloud className="w-7 h-7 text-mg-cyan-700 mb-1" />
-                    <p className="text-xs font-bold text-slate-800">
-                      {fileUploading ? 'Uploading artwork...' : 'Click to attach print artwork or drag here'}
-                    </p>
-                    <p className="text-[10px] text-slate-500 mt-0.5">
-                      Don't have artwork yet? You can also send designs later via WhatsApp.
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
 
           </div>
 
@@ -551,13 +464,13 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Production Queue:</span>
-                  <span className={isRush ? 'text-rose-700 font-bold' : 'text-emerald-700 font-semibold'}>
+                  <span className={isRush ? 'text-rose-700 font-bold' : 'text-mg-cyan-700 font-semibold'}>
                     {isRush ? '⚡ 24-Hour Express' : 'Standard 48-72h'}
                   </span>
                 </div>
 
                 {pricing.discountAmount > 0 && (
-                  <div className="flex justify-between text-emerald-700 font-extrabold pt-1">
+                  <div className="flex justify-between text-mg-cyan-700 font-extrabold pt-1">
                     <span>Bulk Savings:</span>
                     <span>- ₹{pricing.discountAmount.toLocaleString('en-IN')} ({pricing.discountPercent}%)</span>
                   </div>
@@ -582,7 +495,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                   </p>
                 </div>
                 <div className="text-right">
-                  <span className="text-[10px] px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 font-extrabold border border-emerald-300">
+                  <span className="text-[10px] px-2.5 py-1 rounded bg-sky-100 text-mg-cyan-800 font-extrabold border border-sky-300">
                     Best Value
                   </span>
                 </div>
@@ -640,7 +553,7 @@ Hello Micro Graphics! I would like to confirm this order for delivery in Patna.`
                   href={generateWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition-all duration-200 hover:scale-[1.02]"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold text-white bg-mg-cyan hover:bg-mg-cyan-600 shadow-md transition-all duration-200 hover:scale-[1.02]"
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>Order via WhatsApp (+91 9386992015)</span>

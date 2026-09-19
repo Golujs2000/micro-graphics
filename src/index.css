@@ -67,3 +67,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #0284c7;
 }
+
+@keyframes progressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  animation: progressBar 5s linear forwards;
+}
+

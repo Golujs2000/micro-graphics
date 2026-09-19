@@ -34,19 +34,19 @@ export default function Hero({ onOpenQuote, onSelectService }) {
         {/* Trust Highlights Checklist: Balanced 4-column grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3.5 pt-6 max-w-3xl mx-auto">
           <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs text-xs sm:text-sm font-semibold text-slate-800">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-mg-cyan-600 shrink-0" />
             <span className="whitespace-nowrap">24h Express Delivery</span>
           </div>
           <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs text-xs sm:text-sm font-semibold text-slate-800">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-mg-cyan-600 shrink-0" />
             <span className="whitespace-nowrap">300+ DPI Precision</span>
           </div>
           <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs text-xs sm:text-sm font-semibold text-slate-800">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-mg-cyan-600 shrink-0" />
             <span className="whitespace-nowrap">Factory Direct Rates</span>
           </div>
           <div className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-white border border-slate-200/90 shadow-xs text-xs sm:text-sm font-semibold text-slate-800">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-mg-cyan-600 shrink-0" />
             <span className="whitespace-nowrap">Free Pre-Press Check</span>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function Hero({ onOpenQuote, onSelectService }) {
             href={`tel:${COMPANY_INFO.phone}`}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 border border-slate-200 hover:border-amber-400 text-xs text-slate-700 shadow-xs hover:shadow-sm transition-all group"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-mg-cyan animate-pulse"></span>
             <Clock className="w-3.5 h-3.5 text-amber-600" />
             <span>Need urgent prints in Patna today? Call workshop direct:</span>
             <span className="text-mg-cyan-700 font-extrabold group-hover:underline">
@@ -98,7 +98,7 @@ export default function Hero({ onOpenQuote, onSelectService }) {
             <p className="text-xs sm:text-sm text-slate-600 mt-1 font-bold">Completed Print Orders</p>
           </div>
           <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
-            <p className="text-3xl sm:text-4xl font-black text-emerald-600">{COMPANY_INFO.clientSatisfaction}</p>
+            <p className="text-3xl sm:text-4xl font-black text-mg-cyan-600">{COMPANY_INFO.clientSatisfaction}</p>
             <p className="text-xs sm:text-sm text-slate-600 mt-1 font-bold">Client Satisfaction Rate</p>
           </div>
           <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">

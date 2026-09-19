@@ -46,7 +46,7 @@ export default function PricingPackages({ onOpenQuote }) {
                 <div className="flex items-baseline gap-2 pt-2">
                   <span className="text-4xl font-black text-mg-gold">{pkg.price}</span>
                   <span className="text-sm text-slate-400 line-through">{pkg.regularPrice}</span>
-                  <span className="text-xs font-extrabold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                  <span className="text-xs font-extrabold text-mg-cyan-300 bg-sky-950/80 px-2 py-0.5 rounded-full border border-mg-cyan/30">
                     {pkg.savings}
                   </span>
                 </div>
@@ -58,7 +58,7 @@ export default function PricingPackages({ onOpenQuote }) {
                 <ul className="space-y-3 text-xs text-slate-300">
                   {pkg.features.map((feat, fidx) => (
                     <li key={fidx} className="flex items-start gap-2.5">
-                      <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-mg-cyan shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </li>
                   ))}
@@ -73,7 +73,7 @@ export default function PricingPackages({ onOpenQuote }) {
                   className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-extrabold transition-all shadow-md ${
                     pkg.highlight
                       ? 'bg-mg-gold hover:bg-amber-400 text-slate-950'
-                      : 'bg-emerald-600 hover:bg-emerald-500 text-white'
+                      : 'bg-mg-cyan hover:bg-mg-cyan-600 text-white'
                   }`}
                 >
                   <MessageCircle className="w-4 h-4" />
@@ -98,7 +98,7 @@ export default function PricingPackages({ onOpenQuote }) {
               <h4 className="text-lg font-black text-white">Wholesale Volume Discount Tiers</h4>
               <p className="text-xs text-slate-400">Higher print runs exponentially lower your per-unit cost</p>
             </div>
-            <span className="text-xs text-emerald-400 font-bold bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-500/30">
+            <span className="text-xs text-mg-cyan-300 font-bold bg-sky-950/80 px-3 py-1 rounded-full border border-mg-cyan/30">
               Up to 35% Bulk Scale Rebate
             </span>
           </div>

@@ -99,40 +99,7 @@ export const POPULAR_SERVICES = [
     startingPrice: '₹8 / sq.ft',
     turnaround: 'Same Day / 24h'
   },
-  {
-    id: 'product-labels',
-    title: 'Product Labels & Custom Stickers',
-    category: 'labels',
-    subtitle: 'Custom Labels for Your Products',
-    image: '/assets/product label.png',
-    description: 'Precision die-cut adhesive stickers, waterproof jar labels, holographic seals, metallic foil labels, and Kraft paper branding for jars, cosmetics, and bottles.',
-    detailedDescription: 'Elevate your FMCG, pharmaceutical, or artisanal product with industrial-grade self-adhesive labels produced with microscopic precision. Our computer-controlled digital kiss-cutting and die-cutting machinery delivers sharp, intricate shapes on waterproof vinyl, natural organic Kraft paper, transparent BOPP, and security holographic substrates. Ideal for pickle jars, cosmetic bottles, honey jars, and electronic seal packaging.',
-    features: ['Waterproof & oil-proof vinyl', 'Custom shape kiss-cut / die-cut', 'Matte, Gloss or Holographic film', 'Supplied on rolls or flat sheets'],
-    specs: {
-      technology: 'Digital Precision Kiss-Cut & Contour Die Plotters',
-      paperOptions: 'White Gloss Vinyl, Matte Vinyl, Clear Transparent, Brown Kraft, Silver/Gold Foil',
-      gsmRange: 'Self-Adhesive 80-120 Micron with Permanent Glue',
-      finishesAvailable: 'Anti-Scratch Gloss/Matte Lamination, Metallic Foil Stamping, Spot Gloss',
-      minOrderQty: '100 Labels',
-      turnaroundStandard: '24 - 48 Hours',
-      turnaroundRush: '24-Hour Emergency Rush'
-    },
-    applications: [
-      'Food & Beverage Bottles (Honey, Pickles, Sauces)',
-      'Cosmetics & Healthcare Creams, Serums & Oils',
-      'Custom Delivery Bag & Box Seal Stickers',
-      'Asset Tracking, Barcode & Warranty Labels'
-    ],
-    prepressChecklist: [
-      'Provide vector cut contour lines on a separate layer named "CutLine"',
-      'Include 2mm bleed beyond the cut contour',
-      'Convert all fonts to curves/outlines',
-      'Set black text to 100% K only (not 4-color black)'
-    ],
-    popular: true,
-    startingPrice: '₹0.60 / label',
-    turnaround: '24-48 Hours'
-  },
+
   {
     id: 'digital-printing',
     title: 'High-Speed Digital Printing',
