@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Eye, X, Star, Quote, Sparkles, CheckCircle } from 'lucide-react';
 import { TESTIMONIALS } from '../data/siteData';
 
@@ -241,13 +242,13 @@ export default function Portfolio() {
               </div>
 
               <div className="flex items-center justify-between pt-2">
-                <a
-                  href="#calculator"
+                <Link
+                  to="/contact"
                   onClick={() => setSelectedItem(null)}
                   className="px-6 py-2.5 rounded-xl bg-mg-navy text-white text-xs font-bold hover:bg-slate-800"
                 >
-                  Order This Type of Print
-                </a>
+                  Inquire About This Print
+                </Link>
                 <button
                   onClick={() => setSelectedItem(null)}
                   className="text-xs text-slate-500 hover:text-slate-900 font-semibold"

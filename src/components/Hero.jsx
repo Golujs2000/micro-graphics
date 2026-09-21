@@ -54,11 +54,11 @@ export default function Hero({ onOpenQuote, onSelectService }) {
         {/* Action CTA Buttons: Balanced, Sleek & Non-wrapping */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 max-w-xl mx-auto">
           <Link
-            to="/calculator"
+            to="/contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-extrabold text-sm sm:text-base text-slate-950 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-md hover:shadow-lg shadow-amber-500/20 transition-all duration-200 hover:-translate-y-0.5 group whitespace-nowrap"
           >
             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-slate-950" />
-            <span>Calculate Instant Price</span>
+            <span>Request a Quote</span>
             <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />
           </Link>
 
@@ -80,9 +80,9 @@ export default function Hero({ onOpenQuote, onSelectService }) {
           >
             <span className="w-2 h-2 rounded-full bg-mg-cyan animate-pulse"></span>
             <Clock className="w-3.5 h-3.5 text-amber-600" />
-            <span>Need urgent prints in Patna today? Call workshop direct:</span>
+            <span>Need urgent prints or signage in Patna? Call:</span>
             <span className="text-mg-cyan-700 font-extrabold group-hover:underline">
-              {COMPANY_INFO.formattedPhone}
+              93869 92015 / 93040 97965
             </span>
           </a>
         </div>

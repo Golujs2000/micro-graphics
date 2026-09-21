@@ -77,7 +77,7 @@ export default function Footer({ onOpenPolicy }) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li><Link to="/services" className="hover:text-white transition-colors">All 9 Print Services</Link></li>
-              <li><Link to="/calculator" className="text-mg-cyan hover:underline font-bold">Instant Price Calculator</Link></li>
+              <li><Link to="/contact" className="text-mg-cyan hover:underline font-bold">Request a Custom Quote</Link></li>
               <li><Link to="/portfolio" className="hover:text-white transition-colors">Past Projects & Reviews</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">About Us & Machinery</Link></li>
               <li><Link to="/resources" className="hover:text-white transition-colors">Print Bleed & FAQs</Link></li>
@@ -97,7 +97,9 @@ export default function Footer({ onOpenPolicy }) {
               </p>
               <p className="flex items-center gap-2 text-slate-200 font-black">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>{COMPANY_INFO.formattedPhone}</span>
+                <a href={`tel:${COMPANY_INFO.phone}`} className="hover:text-amber-400 transition-colors">93869 92015</a>
+                <span className="text-slate-600">/</span>
+                <a href={`tel:${COMPANY_INFO.secondaryPhone}`} className="hover:text-amber-400 transition-colors">93040 97965</a>
               </p>
               <p className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-mg-cyan shrink-0" />
@@ -122,7 +124,7 @@ export default function Footer({ onOpenPolicy }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
           
           <p className="text-slate-400 text-center sm:text-left">
-            © {new Date().getFullYear()} <span className="text-white font-bold">Micro Graphics</span> — Established {COMPANY_INFO.establishedYear}. Free Press Ln, Pirmuhani, Patna, Bihar 800001.
+            © {new Date().getFullYear()} <span className="text-white font-bold">Micro Graphics</span> — Established 2011 by <span className="text-slate-200 font-bold">Dhananjay Kumar</span>. Free Press Ln, Pirmuhani, Patna, Bihar 800001.
           </p>
 
           <div className="flex items-center flex-wrap justify-center gap-4 text-slate-400">

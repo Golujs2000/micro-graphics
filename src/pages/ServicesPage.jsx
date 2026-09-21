@@ -79,11 +79,13 @@ export default function ServicesPage() {
                   loading="lazy"
                 />
 
-                <div className="absolute top-4 left-4 flex flex-col gap-1.5">
-                  <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-gradient-to-r from-amber-400 to-mg-gold text-slate-950 shadow-md">
-                    {service.startingPrice}
-                  </span>
-                </div>
+                {service.popular && (
+                  <div className="absolute top-4 left-4 flex flex-col gap-1.5">
+                    <span className="px-2.5 py-1 rounded-full text-[11px] font-black bg-gradient-to-r from-amber-400 to-mg-gold text-slate-950 shadow-md">
+                      ★ Popular
+                    </span>
+                  </div>
+                )}
 
                 <div className="absolute bottom-4 right-4">
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/95 text-slate-800 shadow-xs">

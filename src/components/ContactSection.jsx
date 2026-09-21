@@ -94,14 +94,22 @@ export default function ContactSection() {
                 </div>
                 <h4 className="font-bold text-slate-900 text-sm">Direct Phone & WhatsApp</h4>
                 <p className="text-xs text-slate-600">
-                  Speak directly with our print manager:
+                  Speak directly with Mr. Dhananjay Kumar:
                 </p>
-                <a
-                  href={`tel:${COMPANY_INFO.phone}`}
-                  className="block text-sm font-black text-slate-900 hover:text-mg-cyan-600 transition-colors"
-                >
-                  {COMPANY_INFO.formattedPhone}
-                </a>
+                <div className="space-y-1">
+                  <a
+                    href={`tel:${COMPANY_INFO.phone}`}
+                    className="block text-sm font-black text-slate-900 hover:text-mg-cyan-600 transition-colors"
+                  >
+                    +91 93869 92015
+                  </a>
+                  <a
+                    href={`tel:${COMPANY_INFO.secondaryPhone}`}
+                    className="block text-sm font-black text-slate-900 hover:text-mg-cyan-600 transition-colors"
+                  >
+                    +91 93040 97965
+                  </a>
+                </div>
                 <a
                   href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Micro%20Graphics%2C%20I%20have%20an%20inquiry.`}
                   target="_blank"

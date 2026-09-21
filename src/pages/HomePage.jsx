@@ -1,8 +1,8 @@
 import React from 'react';
 import BannerSlider from '../components/BannerSlider';
 import Hero from '../components/Hero';
+import ClientShowcase from '../components/ClientShowcase';
 import ServicesGrid from '../components/ServicesGrid';
-import PriceCalculator from '../components/PriceCalculator';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Portfolio from '../components/Portfolio';
 import AboutUs from '../components/AboutUs';
@@ -14,7 +14,7 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   const handleOpenQuote = (options = {}) => {
-    navigate('/calculator');
+    navigate('/contact');
   };
 
   const handleSelectService = (serviceId) => {
@@ -32,13 +32,13 @@ export default function HomePage() {
         onSelectService={handleSelectService}
       />
 
-      {/* 2. Popular & Filterable Services Grid */}
-      <ServicesGrid
-        onSelectServiceForCalculator={handleSelectService}
-      />
+      {/* 2.5 Esteemed Corporate & Government Clients */}
+      <ClientShowcase />
 
-      {/* 3. Interactive Price Calculator & Online Order Engine */}
-      <PriceCalculator />
+      {/* 3. Popular & Filterable Services Grid */}
+      <ServicesGrid
+        onSelectService={handleSelectService}
+      />
 
       {/* 4. Why Choose Us & USPs */}
       <WhyChooseUs />

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { POPULAR_SERVICES, COMPANY_INFO } from '../data/siteData';
-import PriceCalculator from '../components/PriceCalculator';
 import { 
   ArrowLeft, CheckCircle2, Clock, Phone, MessageCircle, 
   Sparkles, FileText, ChevronRight, ShieldCheck, Cpu, ArrowRight 
@@ -13,13 +12,6 @@ export default function ServiceDetailPage() {
 
   // Lookup service by id
   const service = POPULAR_SERVICES.find(s => s.id === serviceId) || POPULAR_SERVICES[0];
-
-  // Map serviceId to calculator product id if applicable
-  let defaultCalcId = 'visiting-cards';
-  if (service.id.includes('flex')) defaultCalcId = 'flex-banner';
-  else if (service.id.includes('label')) defaultCalcId = 'product-stickers';
-  else if (service.id.includes('flyer')) defaultCalcId = 'flyers';
-  else if (service.id.includes('offset')) defaultCalcId = 'flyers';
 
   const otherServices = POPULAR_SERVICES.filter(s => s.id !== service.id).slice(0, 3);
 
@@ -53,9 +45,6 @@ export default function ServiceDetailPage() {
             </div>
 
             <div className="absolute top-6 left-6 flex flex-col gap-2">
-              <span className="px-3 py-1 rounded-full text-xs font-black bg-gradient-to-r from-amber-400 to-mg-gold text-slate-950 shadow-md">
-                {service.startingPrice}
-              </span>
               <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/90 backdrop-blur-md text-slate-800 shadow-sm flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5 text-mg-cyan-700" />
                 {service.turnaround}
@@ -93,13 +82,13 @@ export default function ServiceDetailPage() {
 
             {/* Direct Action Buttons */}
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-3 border-t border-slate-100">
-              <a
-                href="#order-calculator"
+              <Link
+                to="/contact"
                 className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-extrabold text-xs sm:text-sm text-slate-950 bg-gradient-to-r from-amber-400 via-mg-gold to-amber-500 hover:from-amber-300 hover:to-amber-500 shadow-md transition-all"
               >
                 <Sparkles className="w-4 h-4 text-slate-950" />
-                <span>Calculate Price for this Item</span>
-              </a>
+                <span>Request a Quote for this Item</span>
+              </Link>
 
               <a
                 href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Hello%20Micro%20Graphics%20Patna%2C%20I%20want%20to%20order%20${encodeURIComponent(service.title)}.`}
@@ -211,14 +200,6 @@ export default function ServiceDetailPage() {
 
         </div>
 
-        {/* Embedded Interactive Calculator Anchor */}
-        <div id="order-calculator" className="pt-6">
-          <div className="mb-4">
-            <span className="text-xs font-black uppercase tracking-wider text-amber-700">Instant Online Quote</span>
-            <h3 className="text-2xl font-black text-slate-950">Customize {service.title} & Order</h3>
-          </div>
-          <PriceCalculator preselectedService={defaultCalcId} />
-        </div>
 
         {/* Explore Other Services Carousel / Grid */}
         <div className="pt-10 border-t border-slate-200">
@@ -251,7 +232,6 @@ export default function ServiceDetailPage() {
                   />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold uppercase text-amber-700">{other.startingPrice}</span>
                   <h4 className="text-sm font-black text-slate-900 group-hover:text-mg-cyan-700 transition-colors">
                     {other.title}
                   </h4>

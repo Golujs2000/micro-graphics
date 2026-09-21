@@ -63,8 +63,8 @@ export default function AboutUs() {
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xl font-black text-amber-700">20+ Years</p>
-                <p className="text-xs text-slate-600 font-bold">Established in 2005</p>
+                <p className="text-xl font-black text-amber-700">15+ Years</p>
+                <p className="text-xs text-slate-600 font-bold">Established in 2011</p>
               </div>
             </div>
           </div>
@@ -81,11 +81,11 @@ export default function AboutUs() {
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Founded in the bustling commercial heart of Golambar, Pirmuhani, <strong>Micro Graphics</strong> (mgfx) has grown into one of Patna’s most technologically advanced commercial printing powerhouses.
+              Founded in 2011 by <strong>Dhananjay Kumar</strong> in the bustling commercial heart of Golambar, Pirmuhani, <strong>Micro Graphics</strong> has grown into one of Patna’s most technologically advanced commercial printing and fabrication powerhouses.
             </p>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              We combine traditional German offset craftsmanship with state-of-the-art Japanese digital printing systems. Whether an entrepreneur printing their first 100 visiting cards or a statewide retail chain rolling out 500 outdoor hoardings across Bihar, our facility treats every micron of ink with obsessive perfection.
+              We combine traditional German offset craftsmanship with state-of-the-art Japanese digital printing systems and in-house heavy structural fabrication. Under the leadership of Dhananjay Kumar, our facility treats every micron of ink and millimeter of steel with obsessive perfection.
             </p>
 
             {/* Core Values / Eco-Friendly */}

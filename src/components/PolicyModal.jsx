@@ -72,9 +72,9 @@ export default function PolicyModal({ policyType, onClose }) {
       icon: FileText,
       content: (
         <div className="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-          <h4 className="font-bold text-slate-900">1. Quotations & Pricing Validity</h4>
+          <h4 className="font-bold text-slate-900">1. Quotations & Validity</h4>
           <p>
-            Price quotes calculated on our website are estimates based on standard stock availability and current paper pulp indices. Quotes remain valid for 15 days from generation.
+            Custom quotations provided by Micro Graphics are estimates based on standard stock availability and current paper pulp indices. Quotes remain valid for 15 days from issuance.
           </p>
           <h4 className="font-bold text-slate-900">2. Production Timelines</h4>
           <p>

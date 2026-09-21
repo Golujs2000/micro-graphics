@@ -190,11 +190,11 @@ export default function BannerSlider() {
                 </Link>
 
                 <Link
-                  to="/calculator"
+                  to="/contact"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition-colors"
                 >
                   <Sparkles className="w-4 h-4 text-amber-600" />
-                  <span>Instant Calculator</span>
+                  <span>Request Quote</span>
                 </Link>
 
                 <a
@@ -221,12 +221,9 @@ export default function BannerSlider() {
                   className="w-full h-full object-contain rounded-xl transition-all duration-500 group-hover:scale-105"
                 />
                 
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <span className="px-3 py-1.5 rounded-xl text-xs font-black bg-slate-900/90 text-white shadow-md backdrop-blur-xs">
-                    {active.price}
-                  </span>
+                <div className="absolute bottom-4 right-4 flex items-center">
                   <span className="text-[11px] font-bold text-slate-800 bg-white/95 px-2.5 py-1 rounded-lg border border-slate-200 shadow-xs backdrop-blur-xs">
-                    Patna Factory Rates
+                    Patna Factory Press
                   </span>
                 </div>
               </div>

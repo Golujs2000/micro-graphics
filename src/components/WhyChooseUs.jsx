@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
   const comparisonRows = [
     { feature: "Color Management", mg: "Calibrated Heidelberg & Konica Digital Presses", other: "Uncalibrated local desktop print heads" },
     { feature: "Patna Turnaround", mg: "Same-day 24h Express Rush Available", other: "4 to 7 business days delay" },
-    { feature: "Pricing Transparency", mg: "Instant live calculator with direct factory rates", other: "Hidden plate & lamination charges" },
+    { feature: "Direct Wholesale Rates", mg: "Upfront factory estimates with zero hidden charges", other: "Hidden plate & lamination charges" },
     { feature: "Paper Stock Guarantee", mg: "Genuine imported 350-400 GSM art card", other: "Lightweight sub-standard recycled card" },
     { feature: "Prepress Inspection", mg: "Free file check for bleed, resolution & CMYK", other: "Printed as-is with font/color errors" }
   ];
@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
             Why Micro Graphics is <span className="text-gradient-cmyk">Patna's #1 Choice</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-600">
-            For over 20 years (Established 2005), Patna's top hospitals, retail brands, educational institutes, and startups have trusted our presses for uncompromising precision.
+            Established in 2011 by Dhananjay Kumar, Patna's top national enterprises, corporate brands, hospitals, and retailers have trusted our presses for uncompromising precision.
           </p>
         </div>
 
