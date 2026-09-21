@@ -1,5 +1,6 @@
 import React from 'react';
 import { TRUSTED_CLIENTS } from '../data/siteData';
+import ClientBrandLogo from './ClientBrandLogos';
 import { ShieldCheck, Award, Building2 } from 'lucide-react';
 
 export default function ClientShowcase() {
@@ -28,22 +29,30 @@ export default function ClientShowcase() {
           </p>
         </div>
 
-        {/* 13 Client Badges Grid */}
+        {/* 13 Client Badges Grid with Official Brand Logos */}
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4 items-stretch">
           {TRUSTED_CLIENTS.map((client, idx) => (
             <div
               key={idx}
-              className="group p-3.5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-amber-400/80 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-center items-center text-center hover:-translate-y-1"
+              className="group p-3 sm:p-3.5 rounded-2xl bg-slate-50/90 hover:bg-white border border-slate-200/90 hover:border-amber-400 shadow-2xs hover:shadow-lg hover:shadow-amber-500/5 transition-all duration-300 flex flex-col justify-between items-center text-center hover:-translate-y-1"
             >
-              <span className="w-8 h-8 rounded-lg bg-white group-hover:bg-slate-900 border border-slate-200 group-hover:border-slate-900 flex items-center justify-center text-slate-700 group-hover:text-amber-400 font-black text-xs transition-colors mb-2">
-                {client.tag.slice(0, 2).toUpperCase()}
-              </span>
-              <h4 className="text-xs font-black text-slate-900 group-hover:text-amber-600 transition-colors leading-tight">
-                {client.name}
-              </h4>
-              <span className="text-[10px] text-slate-500 mt-1 font-medium line-clamp-1">
-                {client.category}
-              </span>
+              {/* Official Brand Logo Canvas */}
+              <div className="w-full h-14 sm:h-16 flex items-center justify-center p-2 rounded-xl bg-white border border-slate-200/70 group-hover:border-amber-200/80 shadow-2xs group-hover:shadow-xs transition-all mb-2.5 overflow-hidden">
+                <ClientBrandLogo
+                  tag={client.tag}
+                  className="max-h-10 sm:max-h-11 w-auto max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              {/* Client Title & Subtitle */}
+              <div className="w-full">
+                <h4 className="text-xs font-black text-slate-900 group-hover:text-amber-700 transition-colors leading-tight">
+                  {client.name}
+                </h4>
+                <span className="text-[10px] text-slate-500 mt-1 font-medium block truncate">
+                  {client.category}
+                </span>
+              </div>
             </div>
           ))}
         </div>

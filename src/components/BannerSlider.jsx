@@ -15,7 +15,7 @@ export default function BannerSlider() {
       title: 'Commercial Heidelberg 4-Color Offset Printing',
       tagline: 'High Volume Books, Catalogs, Magazines & Brochures',
       description: 'Ultra-low bulk rates with laser-sharp CMYK consistency powered by German Heidelberg multi-color offset presses at our Golambar workshop in Patna.',
-      image: '/assets/offset printing.png',
+      image: '/assets/slider_offset_press.jpg',
       badge: '★ Factory Production Scale',
       tagBg: 'bg-amber-100 text-amber-900 border-amber-300',
       price: 'Starting at ₹0.85 / unit',
@@ -27,7 +27,7 @@ export default function BannerSlider() {
       title: 'Large Format Flex Banners & Star Flex Signage',
       tagline: 'Weatherproof Outdoor Hoardings, Glow Signs & Roll-Up Standees',
       description: 'Industrial 10ft Roland eco-solvent plotters delivering vibrant, UV-tested, fade-resistant flex hoardings, front-lit & backlit boards across Bihar.',
-      image: '/assets/flex banner.png',
+      image: '/assets/slider_flex_banner.jpg',
       badge: '⚡ Same-Day / 24H Rush in Patna',
       tagBg: 'bg-sky-100 text-sky-900 border-sky-300',
       price: 'Starting at ₹8 / sq.ft',
@@ -39,7 +39,7 @@ export default function BannerSlider() {
       title: 'Event & Exhibition Printing Solutions',
       tagline: 'Print Solutions for Events, Summits & Promotions',
       description: 'Complete venue & booth branding: retractable aluminum roll-up standees, seamless stage backdrops, promotional canopies, satin lanyards, and delegate ID badges.',
-      image: '/assets/event printing.png',
+      image: '/assets/slider_event_printing.jpg',
       badge: '🎪 Complete Summit & Booth Branding',
       tagBg: 'bg-sky-100 text-sky-950 border-sky-300',
       price: 'Starting at ₹850 / standee',
@@ -51,7 +51,7 @@ export default function BannerSlider() {
       title: 'Corporate Stationery & Complete Business Branding',
       tagline: 'Velvet Matte Business Cards, Letterheads & Envelopes',
       description: 'Make a powerful first impression with 350-450 GSM cards, gold foil stamping, spot UV effects, and executive identity stationery suites.',
-      image: '/assets/corporate stationery.png',
+      image: '/assets/slider_corporate_stationery.jpg',
       badge: '💎 Premium Velvet & Foil Finishes',
       tagBg: 'bg-purple-100 text-purple-900 border-purple-300',
       price: 'Starting at ₹180 / 100 cards',
@@ -63,7 +63,7 @@ export default function BannerSlider() {
       title: 'High-Speed Digital Printing & Color Solutions',
       tagline: 'Fast, Flexible & Photographic Quality Prints',
       description: 'Ultra-fast turnarounds on high-definition digital presses with vivid color clarity, no plate-making charges, and zero minimum quantity requirements.',
-      image: '/assets/digital printing.png',
+      image: '/assets/slider_digital_press.jpg',
       badge: '🚀 Zero Setup Fee • No Minimum Order',
       tagBg: 'bg-teal-100 text-teal-900 border-teal-300',
       price: 'Starting at ₹3.50 / print',
@@ -75,7 +75,7 @@ export default function BannerSlider() {
       title: 'Promotional Flyers & Marketing Leaflets',
       tagline: 'Promote Your Business Effectively Across Patna & Bihar',
       description: 'High-gloss and matte finished marketing pamphlets, event handouts, and distribution inserts with rich color saturation and crisp typography.',
-      image: '/assets/flyers.png',
+      image: '/assets/slider_promotional_flyers.jpg',
       badge: '🎯 High-Impact Local Advertising',
       tagBg: 'bg-rose-100 text-rose-900 border-rose-300',
       price: 'Starting at ₹0.90 / flyer',
@@ -211,19 +211,21 @@ export default function BannerSlider() {
 
             </div>
 
-            {/* Right: Relative Service Image (5 cols) */}
+            {/* Right: High-End 4:3 Commercial Production Image (5 cols) */}
             <div className="lg:col-span-5 relative">
-              <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center p-2 group">
+              <div className="relative h-64 sm:h-80 lg:h-[370px] w-full rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-lg group">
                 <img
                   src={active.image}
                   alt={active.title}
                   loading="eager"
-                  className="w-full h-full object-contain rounded-xl transition-all duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover rounded-2xl transition-all duration-700 group-hover:scale-105"
                 />
                 
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
+
                 <div className="absolute bottom-4 right-4 flex items-center">
-                  <span className="text-[11px] font-bold text-slate-800 bg-white/95 px-2.5 py-1 rounded-lg border border-slate-200 shadow-xs backdrop-blur-xs">
-                    Patna Factory Press
+                  <span className="text-[11px] font-extrabold text-slate-900 bg-white/95 px-3 py-1.5 rounded-xl border border-slate-200 shadow-sm backdrop-blur-xs">
+                    Micro Graphics Production
                   </span>
                 </div>
               </div>

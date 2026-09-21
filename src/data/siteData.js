@@ -38,7 +38,7 @@ export const TRUSTED_CLIENTS = [
   { name: "Kasturi Jewellers", category: "Precious Jewellery & Gold", tag: "Kasturi", logoText: "KASTURI" },
   { name: "TBZ Jewellers", category: "Luxury Diamonds & Zaveri", tag: "TBZ", logoText: "TBZ - The Original" },
   { name: "Senco Gold & Diamonds", category: "National Jewellery Brand", tag: "Senco", logoText: "SENCO" },
-  { name: "Krishna Diamond", category: "Fine Diamonds & Solitaires", tag: "Krishna Diamond", logoText: "KRISHNA DIAMOND" }
+  { name: "Kisna Diamond", category: "Real Diamond & Gold Jewellery", tag: "Kisna", logoText: "KISNA" }
 ];
 
 export const SERVICES_CATEGORIES = [
