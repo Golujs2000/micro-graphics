@@ -13,7 +13,7 @@ export default function Portfolio() {
       title: "Gold Foil Corporate Visiting Cards",
       client: "Patna Tech & Real Estate Ventures",
       category: "stationery",
-      image: "/assets/corporate stationery.png",
+      image: "/assets/corporate stationery.jpg",
       specs: "400 GSM Imported Board • Velvet Soft-Touch • Metallic Gold Hot Foil Stamped",
       result: "Elevated corporate brand perception across Bihar investor summits."
     },
@@ -22,7 +22,7 @@ export default function Portfolio() {
       title: "Commercial Heidelberg Offset Catalog",
       client: "Bihar Industrial Equipment Hub",
       category: "commercial",
-      image: "/assets/offset printing.png",
+      image: "/assets/offset printing.jpg",
       specs: "10,000 Copies • 250 GSM Cover with Thermal Matte • 130 GSM Art Interior",
       result: "Delivered in 4 business days with zero color variance across 80 pages."
     },
@@ -31,7 +31,7 @@ export default function Portfolio() {
       title: "High-Visibility Star Flex Signage",
       client: "Patna Commercial Complex, Golambar",
       category: "signage",
-      image: "/assets/flex banner.png",
+      image: "/assets/flex banner.jpg",
       specs: "Heavyweight Star Flex • Solvent UV Inks • Rust-proof Reinforced Eyelets",
       result: "Weather-tested through 2 monsoon seasons without fading."
     },
@@ -40,7 +40,7 @@ export default function Portfolio() {
       title: "Waterproof Jar & Bottle Labels",
       client: "Organic Farm Organics (Boring Road)",
       category: "packaging",
-      image: "/assets/product label.png",
+      image: "/assets/product label.jpg",
       specs: "Die-cut Vinyl • Gloss Anti-Scratch Lamination • Waterproof Adhesive",
       result: "Replaced imported labels, saving 35% on packaging overheads."
     },
@@ -49,7 +49,7 @@ export default function Portfolio() {
       title: "Executive Tri-Fold Promotional Leaflets",
       client: "Patna Super Specialty Hospital",
       category: "commercial",
-      image: "/assets/flyers.png",
+      image: "/assets/flyers.jpg",
       specs: "170 GSM Gloss Art Paper • Machine Creased • Precision Flush Cut",
       result: "50,000 copies printed and dispatched for Bihar healthcare camp."
     },
@@ -58,7 +58,7 @@ export default function Portfolio() {
       title: "Annual Business Summit Stage Branding",
       client: "Bihar Youth Leadership Conclave",
       category: "signage",
-      image: "/assets/event printing.png",
+      image: "/assets/event printing.jpg",
       specs: "Roll-Up Standees • 30ft Seamless Backdrop • Custom Delegate Badges",
       result: "Overnight rush setup delivered directly to the Patna conference hall."
     },
@@ -67,7 +67,7 @@ export default function Portfolio() {
       title: "Hardcover Corporate Profile Booklets",
       client: "Nirvi Financial Solutions",
       category: "stationery",
-      image: "/assets/company profile.png",
+      image: "/assets/company profile.jpg",
       specs: "Hardbound Binding • Spot UV Title • 200 GSM Silk Interior Leaves",
       result: "Distributed to board directors and international banking partners."
     },
@@ -76,7 +76,7 @@ export default function Portfolio() {
       title: "Same-Day High-Speed Digital Proofing",
       client: "Creative Advertising Agency Patna",
       category: "digital",
-      image: "/assets/digital printing.png",
+      image: "/assets/digital printing.jpg",
       specs: "Konica Minolta AccurioPress • 2400 DPI High-Definition Photo Output",
       result: "Fast turnaround proofs approved within 90 minutes of order placement."
     }

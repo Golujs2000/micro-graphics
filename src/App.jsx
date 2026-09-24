@@ -13,6 +13,7 @@ import PortfolioPage from './pages/PortfolioPage';
 import AboutPage from './pages/AboutPage';
 import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
+import DigitalVisitingCardPage from './pages/DigitalVisitingCardPage';
 
 import { MessageCircle, Phone } from 'lucide-react';
 import { COMPANY_INFO } from './data/siteData';
@@ -39,6 +40,10 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/card" element={<DigitalVisitingCardPage />} />
+            <Route path="/visiting-card" element={<Navigate to="/card" replace />} />
+            <Route path="/vcard" element={<Navigate to="/card" replace />} />
+            <Route path="/digital-card" element={<Navigate to="/card" replace />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
         </main>

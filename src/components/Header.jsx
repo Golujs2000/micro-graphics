@@ -21,6 +21,7 @@ export default function Header({ onOpenQuote }) {
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Digital Card', href: '/card' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];

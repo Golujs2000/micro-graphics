@@ -77,6 +77,7 @@ export default function Footer({ onOpenPolicy }) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li><Link to="/services" className="hover:text-white transition-colors">All 9 Print Services</Link></li>
+              <li><Link to="/card" className="text-amber-400 hover:underline font-bold flex items-center gap-1">Digital Visiting Card (vCard)</Link></li>
               <li><Link to="/contact" className="text-mg-cyan hover:underline font-bold">Request a Custom Quote</Link></li>
               <li><Link to="/portfolio" className="hover:text-white transition-colors">Past Projects & Reviews</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">About Us & Machinery</Link></li>
