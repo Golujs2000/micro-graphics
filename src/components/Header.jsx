@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, MessageCircle, Clock, MapPin, Menu, X, ChevronRight, Sparkles } from 'lucide-react';
+import { Phone, MessageCircle, Clock, MapPin, Menu, X, ChevronRight } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteData';
 import Logo from './Logo';
 
@@ -116,13 +116,13 @@ export default function Header({ onOpenQuote }) {
               <span>WhatsApp</span>
             </a>
 
-            <Link
-              to="/contact"
+            <a
+              href={`tel:${COMPANY_INFO.phone}`}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-extrabold text-slate-950 bg-gradient-to-r from-amber-400 to-mg-gold hover:from-amber-300 hover:to-amber-500 shadow-md transition-all duration-200 hover:scale-105"
             >
-              <Sparkles className="w-4 h-4 text-slate-950" />
-              <span>Request a Quote</span>
-            </Link>
+              <Phone className="w-4 h-4 text-slate-950" />
+              <span>{COMPANY_INFO.formattedPhone}</span>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -172,14 +172,13 @@ export default function Header({ onOpenQuote }) {
               <span>Chat on WhatsApp ({COMPANY_INFO.formattedPhone})</span>
             </a>
 
-            <Link
-              to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
+            <a
+              href={`tel:${COMPANY_INFO.phone}`}
               className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-amber-400 to-mg-gold shadow-md"
             >
-              <Sparkles className="w-5 h-5 text-slate-950" />
-              <span>Request a Quote</span>
-            </Link>
+              <Phone className="w-5 h-5 text-slate-950" />
+              <span>Call: {COMPANY_INFO.formattedPhone}</span>
+            </a>
           </div>
         </div>
       )}
