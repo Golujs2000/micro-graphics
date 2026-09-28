@@ -127,12 +127,6 @@ export default function Header({ onOpenQuote }) {
 
           {/* Mobile Menu Button */}
           <div className="xl:hidden flex items-center space-x-2">
-            <Link
-              to="/contact"
-              className="sm:hidden px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-950 bg-mg-gold"
-            >
-              Contact
-            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-800 hover:bg-slate-100 transition-colors"
