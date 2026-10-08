@@ -20,6 +20,7 @@
 | **Website URL** | `https://micrographics-patna.web.app` | Primary website link |
 | **Digital Visiting Card** | `https://micrographics-patna.web.app/card` | Instant vCard & profile |
 | **Appointment / WhatsApp** | `https://wa.me/919386992015?text=Hello%20Micro%20Graphics%20Patna%2C%20I%20need%20a%20printing%20estimate.` | Direct quote link |
+| **Official Email** | `omex.dhan@gmail.com` | Official inquiry email |
 | **Service Areas** | Patna, Danapur, Phulwari Sharif, Hajipur, Muzaffarpur, Gaya, Bhagalpur, Begusarai, Bihar Sharif, Ara, Chapra, Darbhanga | Regional commercial coverage across Bihar |
 | **Opening Hours** | Monday – Saturday: 9:30 AM – 8:30 PM<br>Sunday: Prior Appointment / Emergency Rush | Operating schedule |
 

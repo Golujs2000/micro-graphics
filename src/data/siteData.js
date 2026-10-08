@@ -10,7 +10,7 @@ export const COMPANY_INFO = {
   formattedPhones: "+91 93869 92015 / +91 93040 97965",
   allPhones: ["9386992015", "9304097965"],
   whatsapp: "919386992015",
-  email: "micrographicspatna@gmail.com",
+  email: "omex.dhan@gmail.com",
   address: "Free Press Ln, Pirmuhani, Salimpur Ahra, Golambar, Patna, Bihar 800001",
   plusCode: "J45V+VXW",
   hours: "Monday – Saturday: 9:30 AM – 8:30 PM (Sunday: Prior Appointment)",

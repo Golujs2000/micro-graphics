@@ -50,7 +50,7 @@ ORG:Micro Graphics
 TITLE:Founder & Managing Director
 TEL;TYPE=WORK,VOICE:+919386992015
 TEL;TYPE=CELL,VOICE:+919304097965
-EMAIL;TYPE=PREF,INTERNET:micrographicspatna@gmail.com
+EMAIL;TYPE=PREF,INTERNET:${COMPANY_INFO.email}
 URL:https://micrographics-patna.web.app
 ADR;TYPE=WORK:;;Free Press Ln, Pirmuhani, Salimpur Ahra, Golambar;Patna;Bihar;800001;India
 NOTE:Micro Graphics — Commercial Printing, Outdoor Flex Hoardings, LED Glow Signs, 3D Acrylic Letters & Offset Press in Patna. Estd 2011.

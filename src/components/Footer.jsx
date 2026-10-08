@@ -103,6 +103,12 @@ export default function Footer({ onOpenPolicy }) {
                 <a href={`tel:${COMPANY_INFO.secondaryPhone}`} className="hover:text-amber-400 transition-colors">93040 97965</a>
               </p>
               <p className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-mg-cyan shrink-0" />
+                <a href={`mailto:${COMPANY_INFO.email}`} className="text-slate-300 hover:text-amber-400 transition-colors">
+                  {COMPANY_INFO.email}
+                </a>
+              </p>
+              <p className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-mg-cyan shrink-0" />
                 <span>Mon - Sat: 9:30 AM - 8:30 PM</span>
               </p>
@@ -122,49 +128,63 @@ export default function Footer({ onOpenPolicy }) {
 
       {/* Lower Copyright & Policy Links Bar */}
       <div className="bg-black/60 py-5 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           
-          <p className="text-slate-400 text-center sm:text-left">
-            © {new Date().getFullYear()} <span className="text-white font-bold">Micro Graphics</span> — Established 2011 by <span className="text-slate-200 font-bold">Dhananjay Kumar</span>. Free Press Ln, Pirmuhani, Patna, Bihar 800001.
-          </p>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 text-[11px]">
+            <p className="text-slate-400 text-center lg:text-left">
+              © {new Date().getFullYear()} <span className="text-white font-bold">Micro Graphics</span> — Established 2011 by <span className="text-slate-200 font-bold">Dhananjay Kumar</span>. Free Press Ln, Pirmuhani, Patna, Bihar 800001.
+            </p>
 
-          <div className="flex items-center flex-wrap justify-center gap-4 text-slate-400">
+            <div className="flex items-center flex-wrap justify-center gap-4 text-slate-400">
+              <button
+                onClick={() => onOpenPolicy('shipping')}
+                className="hover:text-white transition-colors underline"
+              >
+                Shipping & Delivery
+              </button>
+              <span>•</span>
+              <button
+                onClick={() => onOpenPolicy('returns')}
+                className="hover:text-white transition-colors underline"
+              >
+                Returns & Reprints
+              </button>
+              <span>•</span>
+              <button
+                onClick={() => onOpenPolicy('privacy')}
+                className="hover:text-white transition-colors underline"
+              >
+                Privacy Policy
+              </button>
+              <span>•</span>
+              <button
+                onClick={() => onOpenPolicy('terms')}
+                className="hover:text-white transition-colors underline"
+              >
+                Terms of Service
+              </button>
+            </div>
+
             <button
-              onClick={() => onOpenPolicy('shipping')}
-              className="hover:text-white transition-colors underline"
+              onClick={scrollToTop}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors shrink-0"
             >
-              Shipping & Delivery
-            </button>
-            <span>•</span>
-            <button
-              onClick={() => onOpenPolicy('returns')}
-              className="hover:text-white transition-colors underline"
-            >
-              Returns & Reprints
-            </button>
-            <span>•</span>
-            <button
-              onClick={() => onOpenPolicy('privacy')}
-              className="hover:text-white transition-colors underline"
-            >
-              Privacy Policy
-            </button>
-            <span>•</span>
-            <button
-              onClick={() => onOpenPolicy('terms')}
-              className="hover:text-white transition-colors underline"
-            >
-              Terms of Service
+              <span>Top</span>
+              <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          <button
-            onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
-          >
-            <span>Top</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
+          <div className="pt-3 border-t border-slate-800/60 flex items-center justify-center gap-1.5 text-[11px] text-slate-400 font-medium">
+            <span>Designed by</span>
+            <a
+              href="https://nirviai.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-slate-200 hover:text-mg-cyan transition-colors underline decoration-slate-600 hover:decoration-mg-cyan underline-offset-4"
+            >
+              nirviai.com
+            </a>
+          </div>
 
         </div>
       </div>
