@@ -175,7 +175,7 @@ export default function Footer({ onOpenPolicy }) {
           </div>
 
           <div className="pt-3 border-t border-slate-800/60 flex items-center justify-center gap-1.5 text-[11px] text-slate-400 font-medium">
-            <span>Designed by</span>
+            <span>Design by</span>
             <a
               href="https://nirviai.com"
               target="_blank"
